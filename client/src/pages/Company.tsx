@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building2, MapPin, User, Calendar, Wallet, Briefcase } from "lucide-react";
+import { Building2, MapPin, User, Calendar, Wallet, Briefcase, ShieldCheck } from "lucide-react";
 
 export default function Company() {
   const { t } = useLanguage();
@@ -12,6 +12,7 @@ export default function Company() {
     { icon: Calendar, label: 'company.est', value: '2024年6月' },
     { icon: Wallet, label: 'company.capital', value: '500万円' },
     { icon: Briefcase, label: 'company.business', value: '玩具・日用品の卸売・販売、マーケティング支援' },
+    { icon: ShieldCheck, label: 'company.license', value: '新潟県公安委員会 第xxxxxxxxxxxx号' },
   ];
 
   return (

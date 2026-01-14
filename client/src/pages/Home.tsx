@@ -47,7 +47,7 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-heading font-bold mt-4 text-slate-800">{t('services.title')}</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* B2C Card */}
           <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group h-full flex flex-col">
             <div className="h-48 overflow-hidden relative">
@@ -101,6 +101,35 @@ export default function Home() {
               <Link href="/contact">
                 <Button className="w-full rounded-full bg-indigo-600 hover:bg-indigo-700 text-white mt-auto">
                   Contact Us
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+
+          {/* Buying Service Card */}
+          <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group h-full flex flex-col">
+            <div className="h-48 overflow-hidden relative">
+              <img 
+                src="/images/service_buying_appraisal.jpg" 
+                alt="Buying Service" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+              <div className="absolute bottom-4 left-4 text-white flex items-center gap-2">
+                <div className="bg-green-500 p-2 rounded-full">
+                  <Handshake className="h-5 w-5" />
+                </div>
+                <span className="font-bold text-lg">Buying</span>
+              </div>
+            </div>
+            <CardContent className="p-6 flex-1 flex flex-col">
+              <h3 className="text-xl font-bold mb-3 text-slate-800">{t('services.buying.title')}</h3>
+              <p className="text-slate-600 mb-6 flex-1 leading-relaxed">
+                {t('services.buying.desc')}
+              </p>
+              <Link href="/services">
+                <Button variant="outline" className="w-full rounded-full border-green-200 text-green-600 hover:bg-green-50 mt-auto">
+                  Learn More
                 </Button>
               </Link>
             </CardContent>

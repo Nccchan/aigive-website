@@ -1,7 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingBag, Handshake, Smartphone, CheckCircle2 } from "lucide-react";
+import { ShoppingBag, Handshake, Smartphone, CheckCircle2, User, Package } from "lucide-react";
 
 export default function Services() {
   const { t } = useLanguage();
@@ -74,6 +74,49 @@ export default function Services() {
                 <span>Daily Necessities</span>
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* Buying Service Section */}
+        <div className="flex flex-col md:flex-row gap-12 items-center">
+          <div className="flex-1 order-2 md:order-1">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold mb-4">
+              <Handshake className="w-4 h-4" />
+              <span>Buying Service</span>
+            </div>
+            <h2 className="text-3xl font-heading font-bold mb-6 text-slate-800">{t('services.buying.title')}</h2>
+            <p className="text-slate-600 text-lg leading-relaxed mb-6">
+              {t('services.buying.desc')} We offer reliable appraisal and buying services for trading cards, toys, and hobby items. Whether you prefer visiting us in person or sending items via mail, we ensure a smooth and transparent transaction process based on our antique dealer license.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <Card className="bg-slate-50 border-none">
+                <CardContent className="p-4 flex items-start gap-3">
+                  <div className="bg-white p-2 rounded-full shadow-sm text-green-600">
+                    <User className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">In-Person</h4>
+                    <p className="text-sm text-slate-600">Bring your items directly to our shop for immediate appraisal.</p>
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="bg-slate-50 border-none">
+                <CardContent className="p-4 flex items-start gap-3">
+                  <div className="bg-white p-2 rounded-full shadow-sm text-green-600">
+                    <Package className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-800">Mail-In</h4>
+                    <p className="text-sm text-slate-600">Send your items from anywhere in Japan. Easy and convenient.</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+          <div className="flex-1 order-1 md:order-2">
+            <div className="rounded-3xl overflow-hidden shadow-xl soft-shadow">
+              <img src="/images/service_buying_appraisal.jpg" alt="Buying Service" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
           </div>
         </div>
 
