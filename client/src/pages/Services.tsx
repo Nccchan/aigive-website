@@ -14,7 +14,7 @@ export default function Services() {
         <div className="container relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">{t('services.title')}</h1>
           <p className="text-indigo-100 text-lg max-w-2xl mx-auto">
-            We provide comprehensive solutions in retail, wholesale, and marketing to deliver joy and value.
+            {t('services.subtitle')}
           </p>
         </div>
       </div>
@@ -29,7 +29,7 @@ export default function Services() {
             </div>
             <h2 className="text-3xl font-heading font-bold mb-6 text-slate-800">{t('services.b2c.title')}</h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-6">
-              {t('services.b2c.desc')} We carefully select and deliver high-quality Japanese toys and daily necessities to customers. Our commitment to safety and speed ensures a delightful shopping experience.
+              {t('services.b2c.desc')}
             </p>
             <div className="flex flex-wrap gap-3">
               <Badge variant="secondary" className="px-4 py-2 text-sm bg-slate-100 text-slate-700 hover:bg-slate-200">Amazon</Badge>
@@ -58,20 +58,20 @@ export default function Services() {
             </div>
             <h2 className="text-3xl font-heading font-bold mb-6 text-slate-800">{t('services.b2b.title')}</h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-6">
-              {t('services.b2b.desc')} We partner with domestic trading card shops, toy stores, and retailers to provide a stable supply of popular and hard-to-find items. Our extensive network allows us to offer competitive pricing and reliable logistics.
+              {t('services.b2b.desc')}
             </p>
             <ul className="space-y-3 mb-8">
               <li className="flex items-center gap-3 text-slate-700">
                 <CheckCircle2 className="w-5 h-5 text-green-500" />
-                <span>Trading Cards & Hobby Goods</span>
+                <span>{t('services.b2b.list1')}</span>
               </li>
               <li className="flex items-center gap-3 text-slate-700">
                 <CheckCircle2 className="w-5 h-5 text-green-500" />
-                <span>Educational Toys</span>
+                <span>{t('services.b2b.list2')}</span>
               </li>
               <li className="flex items-center gap-3 text-slate-700">
                 <CheckCircle2 className="w-5 h-5 text-green-500" />
-                <span>Daily Necessities</span>
+                <span>{t('services.b2b.list3')}</span>
               </li>
             </ul>
           </div>
@@ -86,7 +86,7 @@ export default function Services() {
             </div>
             <h2 className="text-3xl font-heading font-bold mb-6 text-slate-800">{t('services.buying.title')}</h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-6">
-              {t('services.buying.desc')} We offer reliable appraisal and buying services for trading cards, toys, and hobby items. Whether you prefer visiting us in person or sending items via mail, we ensure a smooth and transparent transaction process based on our antique dealer license.
+              {t('services.buying.desc')}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Card className="bg-slate-50 border-none">
@@ -95,8 +95,8 @@ export default function Services() {
                     <User className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-800">In-Person</h4>
-                    <p className="text-sm text-slate-600">Bring your items directly to our shop for immediate appraisal.</p>
+                    <h4 className="font-bold text-slate-800">{t('services.buying.in_person.title')}</h4>
+                    <p className="text-sm text-slate-600">{t('services.buying.in_person.desc')}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -106,8 +106,8 @@ export default function Services() {
                     <Package className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-800">Mail-In</h4>
-                    <p className="text-sm text-slate-600">Send your items from anywhere in Japan. Easy and convenient.</p>
+                    <h4 className="font-bold text-slate-800">{t('services.buying.mail_in.title')}</h4>
+                    <p className="text-sm text-slate-600">{t('services.buying.mail_in.desc')}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -129,13 +129,13 @@ export default function Services() {
             </div>
             <h2 className="text-3xl font-heading font-bold mb-6 text-slate-800">{t('services.sns.title')}</h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-6">
-              {t('services.sns.desc')} Leveraging our proven track record in domestic and international sales, we offer practical consulting on how to "sell" effectively using social media. We don't just talk theory; we share strategies that have worked for us.
+              {t('services.sns.desc')}
             </p>
             <Card className="bg-slate-50 border-none">
               <CardContent className="p-6">
-                <h4 className="font-bold text-slate-800 mb-2">Our Expertise</h4>
+                <h4 className="font-bold text-slate-800 mb-2">{t('services.sns.expertise.title')}</h4>
                 <p className="text-sm text-slate-600">
-                  From content creation to community management, we guide you through the nuances of engaging customers on platforms like Instagram, X (Twitter), and TikTok.
+                  {t('services.sns.expertise.desc')}
                 </p>
               </CardContent>
             </Card>

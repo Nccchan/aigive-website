@@ -6,13 +6,13 @@ export default function Company() {
   const { t } = useLanguage();
 
   const companyData = [
-    { icon: Building2, label: 'company.name', value: '株式会社AiGIVE' },
-    { icon: User, label: 'company.rep', value: '内藤 奈月' },
-    { icon: MapPin, label: 'company.address', value: '〒940-0062 新潟県長岡市大手通2-2-6' },
-    { icon: Calendar, label: 'company.est', value: '2024年6月' },
-    { icon: Wallet, label: 'company.capital', value: '500万円' },
-    { icon: Briefcase, label: 'company.business', value: '玩具・日用品の卸売・販売、マーケティング支援' },
-    { icon: ShieldCheck, label: 'company.license', value: '新潟県公安委員会 第xxxxxxxxxxxx号' },
+    { icon: Building2, label: 'company.name', value: t('company.name_value') },
+    { icon: User, label: 'company.rep', value: t('company.rep_value') },
+    { icon: MapPin, label: 'company.address', value: t('company.address_value') },
+    { icon: Calendar, label: 'company.est', value: t('company.est_value') },
+    { icon: Wallet, label: 'company.capital', value: t('company.capital_value') },
+    { icon: Briefcase, label: 'company.business', value: t('company.business_value') },
+    { icon: ShieldCheck, label: 'company.license', value: t('company.license_value') },
   ];
 
   return (
@@ -26,7 +26,7 @@ export default function Company() {
       <div className="container max-w-4xl">
         <Card className="border-none shadow-xl soft-shadow overflow-hidden">
           <CardHeader className="bg-indigo-600 text-white p-8">
-            <CardTitle className="text-2xl font-heading text-center">Corporate Profile</CardTitle>
+            <CardTitle className="text-2xl font-heading text-center">{t('company.profile_title')}</CardTitle>
           </CardHeader>
           <CardContent className="p-0">
             <div className="divide-y divide-slate-100">

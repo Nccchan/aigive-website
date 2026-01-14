@@ -21,7 +21,7 @@ export default function Contact() {
       <div className="bg-orange-50 py-16 mb-12">
         <div className="container text-center">
           <h1 className="text-3xl md:text-4xl font-heading font-bold text-slate-800">{t('contact.title')}</h1>
-          <p className="text-slate-600 mt-4">We'd love to hear from you. Please fill out the form below.</p>
+          <p className="text-slate-600 mt-4">{t('contact.subtitle')}</p>
         </div>
       </div>
 
@@ -45,15 +45,16 @@ export default function Contact() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="type">Inquiry Type</Label>
+                <Label htmlFor="type">{t('contact.type')}</Label>
                 <Select>
                   <SelectTrigger className="bg-slate-50 border-slate-200 focus:ring-indigo-500">
                     <SelectValue placeholder="Select an option" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="b2b">B2B Transaction</SelectItem>
-                    <SelectItem value="consulting">Consulting Request</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
+                    <SelectItem value="b2b">{t('contact.type.b2b')}</SelectItem>
+                    <SelectItem value="consulting">{t('contact.type.consulting')}</SelectItem>
+                    <SelectItem value="buying">{t('contact.type.buying')}</SelectItem>
+                    <SelectItem value="other">{t('contact.type.other')}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

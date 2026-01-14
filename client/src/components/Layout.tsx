@@ -119,9 +119,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h4 className="font-bold text-slate-800 mb-4">{t('nav.services')}</h4>
               <ul className="space-y-2 text-sm text-slate-600">
-                <li><Link href="/services"><a className="hover:text-indigo-600">B2C Retail</a></Link></li>
-                <li><Link href="/services"><a className="hover:text-indigo-600">B2B Wholesale</a></Link></li>
-                <li><Link href="/services"><a className="hover:text-indigo-600">SNS Marketing</a></Link></li>
+                <li><Link href="/services"><a className="hover:text-indigo-600">{t('services.b2c.title')}</a></Link></li>
+                <li><Link href="/services"><a className="hover:text-indigo-600">{t('services.b2b.title')}</a></Link></li>
+                <li><Link href="/services"><a className="hover:text-indigo-600">{t('services.sns.title')}</a></Link></li>
               </ul>
             </div>
             <div>

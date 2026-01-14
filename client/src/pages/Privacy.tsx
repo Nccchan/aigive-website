@@ -13,29 +13,29 @@ export default function Privacy() {
 
       <div className="container max-w-3xl prose prose-slate prose-lg">
         <div className="bg-white p-8 md:p-12 rounded-3xl shadow-lg soft-shadow">
-          <h3>1. 個人情報の利用目的</h3>
+          <h3>{t('privacy.section1.title')}</h3>
           <p>
-            当社は、お問い合わせフォーム等を通じて取得した個人情報を、以下の目的のために利用します。
+            {t('privacy.section1.content')}
           </p>
           <ul>
-            <li>お問い合わせへの回答および連絡</li>
-            <li>当社のサービス・商品のご案内</li>
-            <li>サービスの改善および向上</li>
+            <li>{t('privacy.section1.list1')}</li>
+            <li>{t('privacy.section1.list2')}</li>
+            <li>{t('privacy.section1.list3')}</li>
           </ul>
 
-          <h3>2. 個人情報の第三者提供</h3>
+          <h3>{t('privacy.section2.title')}</h3>
           <p>
-            当社は、法令に基づく場合を除き、あらかじめご本人の同意を得ることなく、個人情報を第三者に提供することはありません。
+            {t('privacy.section2.content')}
           </p>
 
-          <h3>3. 個人情報の管理</h3>
+          <h3>{t('privacy.section3.title')}</h3>
           <p>
-            当社は、個人情報の漏洩、滅失または毀損の防止その他個人情報の安全管理のために、必要かつ適切な措置を講じます。
+            {t('privacy.section3.content')}
           </p>
 
-          <h3>4. お問い合わせ窓口</h3>
+          <h3>{t('privacy.section4.title')}</h3>
           <p>
-            本ポリシーに関するお問い合わせは、お問い合わせフォームよりお願いいたします。
+            {t('privacy.section4.content')}
           </p>
         </div>
       </div>

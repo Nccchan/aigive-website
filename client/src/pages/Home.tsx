@@ -100,7 +100,7 @@ export default function Home() {
               </p>
               <Link href="/contact">
                 <Button className="w-full rounded-full bg-indigo-600 hover:bg-indigo-700 text-white mt-auto">
-                  Contact Us
+                  {t('common.contact_us')}
                 </Button>
               </Link>
             </CardContent>
@@ -129,7 +129,7 @@ export default function Home() {
               </p>
               <Link href="/services">
                 <Button variant="outline" className="w-full rounded-full border-green-200 text-green-600 hover:bg-green-50 mt-auto">
-                  Learn More
+                  {t('common.learn_more')}
                 </Button>
               </Link>
             </CardContent>
@@ -158,7 +158,7 @@ export default function Home() {
               </p>
               <Link href="/services">
                 <Button variant="outline" className="w-full rounded-full border-indigo-200 text-indigo-600 hover:bg-indigo-50 mt-auto">
-                  Learn More
+                  {t('common.learn_more')}
                 </Button>
               </Link>
             </CardContent>
@@ -176,10 +176,10 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1">
               <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 text-slate-800 leading-snug">
-                Connecting Japan's Quality to the World
+                {t('feature.title')}
               </h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                At AiGIVE, we believe in the power of play. Our mission is to deliver safe, high-quality Japanese toys that bring smiles to children and families worldwide. Through our extensive network and marketing expertise, we bridge the gap between Japanese craftsmanship and global joy.
+                {t('feature.desc')}
               </p>
               <div className="flex gap-4">
                 <div className="flex flex-col items-center p-4 bg-slate-50 rounded-2xl min-w-[100px]">
