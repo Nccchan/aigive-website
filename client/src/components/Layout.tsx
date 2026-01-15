@@ -134,6 +134,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
           <div className="border-t border-slate-100 pt-8 text-center text-sm text-slate-400">
+            <div className="mb-2 flex flex-col md:flex-row justify-center gap-2 md:gap-4">
+              <span>{t('company.license_auth_value')} {t('company.license_value')}</span>
+            </div>
             {t('footer.copyright')}
           </div>
         </div>

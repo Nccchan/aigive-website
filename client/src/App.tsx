@@ -8,6 +8,7 @@ import Services from "@/pages/Services";
 import Company from "@/pages/Company";
 import Contact from "@/pages/Contact";
 import Privacy from "@/pages/Privacy";
+import ComingSoon from "@/pages/ComingSoon";
 import NotFound from "@/pages/NotFound";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
@@ -20,6 +21,7 @@ function Router() {
         <Route path="/company" component={Company} />
         <Route path="/contact" component={Contact} />
         <Route path="/privacy" component={Privacy} />
+        <Route path="/coming-soon" component={ComingSoon} />
         <Route component={NotFound} />
       </Switch>
     </Layout>

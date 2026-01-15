@@ -32,9 +32,15 @@ export default function Services() {
               {t('services.b2c.desc')}
             </p>
             <div className="flex flex-wrap gap-3">
-              <Badge variant="secondary" className="px-4 py-2 text-sm bg-slate-100 text-slate-700 hover:bg-slate-200">Amazon</Badge>
-              <Badge variant="secondary" className="px-4 py-2 text-sm bg-slate-100 text-slate-700 hover:bg-slate-200">Rakuten</Badge>
-              <Badge variant="secondary" className="px-4 py-2 text-sm bg-slate-100 text-slate-700 hover:bg-slate-200">Yahoo! Shopping</Badge>
+              <a href="https://www.amazon.co.jp/b?node=26286483051&ie=UTF8&marketplaceID=A1VC38T7YXB528&me=A20GZZNLS2BAB2" target="_blank" rel="noopener noreferrer">
+                <Badge variant="secondary" className="px-4 py-2 text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">Amazon</Badge>
+              </a>
+              <a href="/coming-soon">
+                <Badge variant="secondary" className="px-4 py-2 text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">Rakuten</Badge>
+              </a>
+              <a href="/coming-soon">
+                <Badge variant="secondary" className="px-4 py-2 text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">Yahoo! Shopping</Badge>
+              </a>
             </div>
           </div>
           <div className="flex-1 order-1 md:order-2">
@@ -89,29 +95,34 @@ export default function Services() {
               {t('services.buying.desc')}
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <Card className="bg-slate-50 border-none">
-                <CardContent className="p-4 flex items-start gap-3">
-                  <div className="bg-white p-2 rounded-full shadow-sm text-green-600">
-                    <User className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-800">{t('services.buying.in_person.title')}</h4>
-                    <p className="text-sm text-slate-600">{t('services.buying.in_person.desc')}</p>
-                  </div>
-                </CardContent>
-              </Card>
-              <Card className="bg-slate-50 border-none">
-                <CardContent className="p-4 flex items-start gap-3">
-                  <div className="bg-white p-2 rounded-full shadow-sm text-green-600">
-                    <Package className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-slate-800">{t('services.buying.mail_in.title')}</h4>
-                    <p className="text-sm text-slate-600">{t('services.buying.mail_in.desc')}</p>
-                  </div>
-                </CardContent>
-              </Card>
+              <a href="/coming-soon" className="block h-full">
+                <Card className="bg-slate-50 border-none h-full hover:bg-slate-100 transition-colors cursor-pointer">
+                  <CardContent className="p-4 flex items-start gap-3">
+                    <div className="bg-white p-2 rounded-full shadow-sm text-green-600">
+                      <User className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-800">{t('services.buying.in_person.title')}</h4>
+                      <p className="text-sm text-slate-600">{t('services.buying.in_person.desc')}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
+              <a href="/coming-soon" className="block h-full">
+                <Card className="bg-slate-50 border-none h-full hover:bg-slate-100 transition-colors cursor-pointer">
+                  <CardContent className="p-4 flex items-start gap-3">
+                    <div className="bg-white p-2 rounded-full shadow-sm text-green-600">
+                      <Package className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-800">{t('services.buying.mail_in.title')}</h4>
+                      <p className="text-sm text-slate-600">{t('services.buying.mail_in.desc')}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
             </div>
+
           </div>
           <div className="flex-1 order-1 md:order-2">
             <div className="rounded-3xl overflow-hidden shadow-xl soft-shadow">
