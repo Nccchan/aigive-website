@@ -101,6 +101,9 @@ export default function Services() {
                 </svg>
                 <span>@niko_kaitori</span>
               </a>
+              <p className="text-sm text-green-600 font-bold mt-2">
+                {t('services.buying.commitment')}
+              </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <a href="/coming-soon" className="block h-full">
@@ -116,7 +119,7 @@ export default function Services() {
                   </CardContent>
                 </Card>
               </a>
-              <a href="/coming-soon" className="block h-full">
+              <a href="https://x.com/niko_kaitori" target="_blank" rel="noopener noreferrer" className="block h-full">
                 <Card className="bg-slate-50 border-none h-full hover:bg-slate-100 transition-colors cursor-pointer">
                   <CardContent className="p-4 flex items-start gap-3">
                     <div className="bg-white p-2 rounded-full shadow-sm text-green-600">
