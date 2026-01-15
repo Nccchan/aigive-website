@@ -1,4 +1,8 @@
 {
+  "framework": "vite",
+  "buildCommand": "pnpm run build",
+  "outputDirectory": "dist",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD .",
   "rewrites": [
     {
       "source": "/(.*)",
