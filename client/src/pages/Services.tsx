@@ -94,6 +94,14 @@ export default function Services() {
             <p className="text-slate-600 text-lg leading-relaxed mb-6">
               {t('services.buying.desc')}
             </p>
+            <div className="mb-6">
+              <a href="https://x.com/niko_kaitori" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-slate-700 hover:text-slate-900 transition-colors font-medium">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+                <span>@niko_kaitori</span>
+              </a>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <a href="/coming-soon" className="block h-full">
                 <Card className="bg-slate-50 border-none h-full hover:bg-slate-100 transition-colors cursor-pointer">
