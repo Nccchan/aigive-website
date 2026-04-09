@@ -54,6 +54,10 @@ export default function Contact() {
         <div className="container text-center">
           <h1 className="text-3xl md:text-4xl font-heading font-bold text-slate-800">{t('contact.title')}</h1>
           <p className="text-slate-600 mt-4">{t('contact.subtitle')}</p>
+          <div className="mt-6 inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full shadow-sm text-slate-700 font-medium">
+            <svg className="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            <a href="mailto:info@aigive.jp" className="hover:text-indigo-600 transition-colors">info@aigive.jp</a>
+          </div>
         </div>
       </div>
 

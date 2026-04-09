@@ -10,7 +10,7 @@ export default function Services() {
     <div className="pb-20">
       {/* Header */}
       <div className="bg-indigo-900 text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/service_b2c_toys.jpg')] bg-cover bg-center opacity-20"></div>
+        <div className="absolute inset-0 bg-[url('https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_b2c_toys_b4a1497b.jpg')] bg-cover bg-center opacity-20"></div>
         <div className="container relative z-10 text-center">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">{t('services.title')}</h1>
           <p className="text-indigo-100 text-lg max-w-2xl mx-auto">
@@ -45,7 +45,7 @@ export default function Services() {
           </div>
           <div className="flex-1 order-1 md:order-2">
             <div className="rounded-3xl overflow-hidden shadow-xl soft-shadow">
-              <img src="/images/service_b2c_toys.jpg" alt="B2C Retail" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_b2c_toys_b4a1497b.jpg" alt="B2C Retail" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@ export default function Services() {
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="flex-1">
             <div className="rounded-3xl overflow-hidden shadow-xl soft-shadow">
-              <img src="/images/service_b2b_business.jpg" alt="B2B Wholesale" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_b2b_business_99741851.jpg" alt="B2B Wholesale" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </div>
           <div className="flex-1">
@@ -137,7 +137,7 @@ export default function Services() {
           </div>
           <div className="flex-1 order-1 md:order-2">
             <div className="rounded-3xl overflow-hidden shadow-xl soft-shadow">
-              <img src="/images/service_buying_appraisal.jpg" alt="Buying Service" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_buying_appraisal_b2388309.jpg" alt="Buying Service" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </div>
         </div>
@@ -164,7 +164,7 @@ export default function Services() {
           </div>
           <div className="flex-1 order-1 md:order-2">
             <div className="rounded-3xl overflow-hidden shadow-xl soft-shadow">
-              <img src="/images/service_sns_marketing.jpg" alt="SNS Marketing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_sns_marketing_0357ec50.jpg" alt="SNS Marketing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </div>
         </div>

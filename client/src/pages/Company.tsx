@@ -1,6 +1,6 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building2, MapPin, User, Calendar, Wallet, Briefcase, ShieldCheck, FileText, Hash } from "lucide-react";
+import { Building2, MapPin, User, Calendar, Wallet, Briefcase, ShieldCheck, FileText, Hash, Mail } from "lucide-react";
 
 export default function Company() {
   const { t } = useLanguage();
@@ -15,6 +15,7 @@ export default function Company() {
     { icon: Hash, label: 'company.corporate_number', value: t('company.corporate_number_value') },
     { icon: FileText, label: 'company.invoice_number', value: t('company.invoice_number_value') },
     { icon: ShieldCheck, label: 'company.license', value: `${t('company.license_value')} (${t('company.license_auth_value')})` },
+    { icon: Mail, label: 'company.email', value: t('company.email_value') },
   ];
 
   return (

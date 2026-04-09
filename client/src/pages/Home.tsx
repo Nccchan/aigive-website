@@ -13,7 +13,7 @@ export default function Home() {
       <section className="relative h-[600px] w-full overflow-hidden flex items-center">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero_family_toys.jpg" 
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/hero_family_toys_a7749c0e.jpg" 
             alt="Happy family playing with toys" 
             className="w-full h-full object-cover"
           />
@@ -52,7 +52,7 @@ export default function Home() {
           <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group h-full flex flex-col">
             <div className="h-48 overflow-hidden relative">
               <img 
-                src="/images/service_b2c_toys.jpg" 
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_b2c_toys_b4a1497b.jpg" 
                 alt="B2C Services" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
@@ -81,7 +81,7 @@ export default function Home() {
           <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group h-full flex flex-col">
             <div className="h-48 overflow-hidden relative">
               <img 
-                src="/images/service_b2b_business.jpg" 
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_b2b_business_99741851.jpg" 
                 alt="B2B Services" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
@@ -110,7 +110,7 @@ export default function Home() {
           <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group h-full flex flex-col">
             <div className="h-48 overflow-hidden relative">
               <img 
-                src="/images/service_buying_appraisal.jpg" 
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_buying_appraisal_b2388309.jpg" 
                 alt="Buying Service" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
@@ -139,7 +139,7 @@ export default function Home() {
           <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group h-full flex flex-col">
             <div className="h-48 overflow-hidden relative">
               <img 
-                src="/images/service_sns_marketing.jpg" 
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_sns_marketing_0357ec50.jpg" 
                 alt="SNS Marketing" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
@@ -194,7 +194,7 @@ export default function Home() {
             </div>
             <div className="flex-1 relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
-                <img src="/images/hero_family_toys.jpg" alt="Quality Toys" className="w-full object-cover" />
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/hero_family_toys_a7749c0e.jpg" alt="Quality Toys" className="w-full object-cover" />
               </div>
             </div>
           </div>
