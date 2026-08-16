@@ -1,36 +1,29 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* ------------------------------------------------------------------
-   デジタル庁デザインシステム(DADS)の色に寄せる（2026-08-16 なつき指示）。
-   個々のクラスを書き換えるとページごとに漏れるので、**Tailwindの色そのものを差し替える**。
-   本文 #1A1A1A / 強調・リンク #0017C1 / 補助文字 #626262 / 罫 #D6D6D6 / 背景 #F2F2F2
-   ------------------------------------------------------------------ */
+/* AiGIVE corporate visual system — DADS-aligned palette */
 @theme {
   --color-indigo-50:  #EBF0FF;
   --color-indigo-100: #D6E0FF;
   --color-indigo-600: #0017C1;
   --color-indigo-700: #00119B;
   --color-indigo-800: #000B75;
-  --color-orange-50:  #FFF4E5;
-  --color-orange-100: #FFE7C7;
-  --color-orange-500: #B85C00;
-  --color-orange-600: #9A4D00;
   --color-slate-50:   #F2F2F2;
+  --color-slate-100:  #E8E8E8;
   --color-slate-200:  #D6D6D6;
   --color-slate-500:  #626262;
   --color-slate-600:  #4B4B4B;
   --color-slate-800:  #1A1A1A;
+  --color-red-600:    #EC0000;
 }
-
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 8px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -63,112 +56,105 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-sans: "Noto Sans JP", sans-serif;
-  --font-heading: "M PLUS Rounded 1c", sans-serif;
+  --font-sans: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 :root {
-  /* Soft Modernism Theme Colors */
-  /* Base: Slate-50 equivalent */
-  --background: oklch(0.98 0.01 240); 
-  /* Foreground: Slate-800 equivalent */
-  --foreground: oklch(0.27 0.02 260);
-  
-  /* Card: White */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.27 0.02 260);
-  
-  /* Popover: White */
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.27 0.02 260);
-  
-  /* Primary: Indigo-600 equivalent (Trust) */
-  --primary: oklch(0.5 0.2 270);
-  --primary-foreground: oklch(0.98 0.01 240);
-  
-  /* Secondary: Indigo-100 equivalent (Softness) */
-  --secondary: oklch(0.93 0.05 270);
-  --secondary-foreground: oklch(0.3 0.1 270);
-  
-  /* Muted: Slate-100 equivalent */
-  --muted: oklch(0.96 0.01 240);
-  --muted-foreground: oklch(0.55 0.02 260);
-  
-  /* Accent: Orange-400 equivalent (Warmth) */
-  --accent: oklch(0.75 0.18 55);
-  --accent-foreground: oklch(1 0 0);
-  
-  /* Destructive */
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  
-  /* Border & Input */
-  --border: oklch(0.92 0.01 240);
-  --input: oklch(0.92 0.01 240);
-  --ring: oklch(0.5 0.2 270);
-  
-  /* Charts (Blue/Indigo spectrum) */
-  --chart-1: oklch(0.5 0.2 270);
-  --chart-2: oklch(0.6 0.15 260);
-  --chart-3: oklch(0.7 0.1 250);
-  --chart-4: oklch(0.8 0.05 240);
-  --chart-5: oklch(0.9 0.02 230);
-  
-  /* Sidebar */
-  --sidebar: oklch(0.98 0.01 240);
-  --sidebar-foreground: oklch(0.27 0.02 260);
-  --sidebar-primary: oklch(0.5 0.2 270);
-  --sidebar-primary-foreground: oklch(0.98 0.01 240);
-  --sidebar-accent: oklch(0.93 0.05 270);
-  --sidebar-accent-foreground: oklch(0.3 0.1 270);
-  --sidebar-border: oklch(0.92 0.01 240);
-  --sidebar-ring: oklch(0.5 0.2 270);
-
-  /* Radius: Rounded UI */
-  --radius: 1rem;
+  --background: #FFFFFF;
+  --foreground: #1A1A1A;
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+  --primary: #0017C1;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F2F2F2;
+  --secondary-foreground: #1A1A1A;
+  --muted: #F2F2F2;
+  --muted-foreground: #626262;
+  --accent: #EBF0FF;
+  --accent-foreground: #0017C1;
+  --destructive: #EC0000;
+  --destructive-foreground: #FFFFFF;
+  --border: #D6D6D6;
+  --input: #D6D6D6;
+  --ring: #0017C1;
+  --chart-1: #0017C1;
+  --chart-2: #3451D1;
+  --chart-3: #6988E8;
+  --chart-4: #9DB7F1;
+  --chart-5: #D6E0FF;
+  --sidebar: #F2F2F2;
+  --sidebar-foreground: #1A1A1A;
+  --sidebar-primary: #0017C1;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #EBF0FF;
+  --sidebar-accent-foreground: #0017C1;
+  --sidebar-border: #D6D6D6;
+  --sidebar-ring: #0017C1;
+  --radius: 8px;
 }
 
 .dark {
-  /* Dark mode adjustments if needed, though requirements specify light/clean base */
-  --background: oklch(0.15 0.02 260);
-  --foreground: oklch(0.98 0.01 240);
-  --card: oklch(0.2 0.02 260);
-  --card-foreground: oklch(0.98 0.01 240);
-  --popover: oklch(0.2 0.02 260);
-  --popover-foreground: oklch(0.98 0.01 240);
-  --primary: oklch(0.6 0.2 270);
-  --primary-foreground: oklch(0.98 0.01 240);
-  --secondary: oklch(0.25 0.05 270);
-  --secondary-foreground: oklch(0.9 0.05 270);
-  --muted: oklch(0.25 0.02 260);
-  --muted-foreground: oklch(0.7 0.02 260);
-  --accent: oklch(0.7 0.18 55);
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.3 0.02 260);
-  --input: oklch(0.3 0.02 260);
-  --ring: oklch(0.6 0.2 270);
-  --sidebar: oklch(0.15 0.02 260);
-  --sidebar-foreground: oklch(0.98 0.01 240);
-  --sidebar-primary: oklch(0.6 0.2 270);
-  --sidebar-primary-foreground: oklch(0.98 0.01 240);
-  --sidebar-accent: oklch(0.25 0.05 270);
-  --sidebar-accent-foreground: oklch(0.9 0.05 270);
-  --sidebar-border: oklch(0.3 0.02 260);
-  --sidebar-ring: oklch(0.6 0.2 270);
+  --background: #1A1A1A;
+  --foreground: #FFFFFF;
+  --card: #242424;
+  --card-foreground: #FFFFFF;
+  --popover: #242424;
+  --popover-foreground: #FFFFFF;
+  --primary: #8DA2FF;
+  --primary-foreground: #111111;
+  --secondary: #2E2E2E;
+  --secondary-foreground: #FFFFFF;
+  --muted: #2E2E2E;
+  --muted-foreground: #C7C7C7;
+  --accent: #26356F;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF5A5F;
+  --destructive-foreground: #111111;
+  --border: #4B4B4B;
+  --input: #4B4B4B;
+  --ring: #8DA2FF;
+  --sidebar: #242424;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #8DA2FF;
+  --sidebar-primary-foreground: #111111;
+  --sidebar-accent: #26356F;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #4B4B4B;
+  --sidebar-ring: #8DA2FF;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    background: #FFFFFF;
+    color: #1A1A1A;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    margin: 0;
+    font-feature-settings: "palt" 1;
   }
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold;
+    @apply font-sans font-bold;
+    text-wrap: balance;
   }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a, button, input, textarea, select {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -179,6 +165,11 @@
   input[type="checkbox"]:not(:disabled),
   input[type="radio"]:not(:disabled) {
     @apply cursor-pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid #0017C1;
+    outline-offset: 2px;
   }
 }
 
@@ -205,21 +196,21 @@
 
   @media (min-width: 1024px) {
     .container {
+      max-width: 1200px;
       padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px;
     }
   }
-  
-  /* Custom Utilities for Soft Modernism */
+
   .soft-shadow {
-    box-shadow: 0 10px 40px -10px rgba(79, 70, 229, 0.1);
+    box-shadow: none;
   }
-  
+
   .glass-card {
-    @apply bg-white/80 backdrop-blur-md border border-white/20;
+    @apply border border-[#D6D6D6] bg-white;
+    backdrop-filter: none;
   }
-  
+
   .text-balance {
     text-wrap: balance;
   }

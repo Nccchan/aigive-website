@@ -1,227 +1,182 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, ShoppingBag, Handshake, Smartphone } from "lucide-react";
+import { ArrowRight, Building2, CheckCircle2, Globe2, PackageCheck, Store, Users } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
+  const isJa = language === "ja";
+
+  const facts = [
+    { label: isJa ? "法人番号" : "Corporate No.", value: "5110001038461" },
+    { label: isJa ? "古物商許可" : "Secondhand Dealer License", value: "第461350000709号" },
+    { label: isJa ? "適格請求書発行事業者" : "Invoice Registration", value: "T5110001038461" },
+    { label: isJa ? "所在地" : "Location", value: isJa ? "新潟県長岡市" : "Nagaoka, Niigata, Japan" },
+  ];
+
+  const supportingBusinesses = [
+    {
+      icon: Store,
+      title: t("services.b2c.title"),
+      description: t("services.b2c.desc"),
+    },
+    {
+      icon: PackageCheck,
+      title: t("services.buying.title"),
+      description: t("services.buying.desc"),
+    },
+    {
+      icon: Users,
+      title: t("services.sns.title"),
+      description: t("services.sns.desc"),
+    },
+  ];
 
   return (
-    <div className="flex flex-col gap-16 pb-16">
-      {/* Hero Section */}
-      <section className="relative h-[600px] w-full overflow-hidden flex items-center">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/hero_family_toys_a7749c0e.jpg" 
-            alt="Happy family playing with toys" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-indigo-900/30 backdrop-blur-[2px]"></div>
-        </div>
-        
-        <div className="container relative z-10 text-white">
-          <div className="max-w-2xl animate-in fade-in slide-in-from-bottom-8 duration-1000">
-            <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6 leading-tight drop-shadow-lg">
-              {t('hero.title')}
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 font-medium text-indigo-50 drop-shadow-md">
-              {t('hero.subtitle')}
+    <div className="bg-white text-[#1A1A1A]">
+      <section className="border-b border-[#D6D6D6]">
+        <div className="container py-20 md:py-28 lg:py-32">
+          <div className="max-w-4xl">
+            <p className="mb-5 text-sm font-bold tracking-[0.08em] text-[#0017C1]">
+              AIGIVE / TOY & HOBBY WHOLESALE
             </p>
-            <Link href="/services">
-              <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white border-none rounded-full px-8 py-6 text-lg shadow-lg hover:shadow-orange-500/30 transition-all hover:-translate-y-1">
-                {t('hero.cta')} <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+            <h1 className="max-w-4xl text-4xl font-bold leading-[1.25] tracking-[-0.02em] md:text-6xl lg:text-7xl">
+              {isJa ? (
+                <>玩具・ホビーの卸売を、<br className="hidden sm:block" />長岡から全国・海外へ。</>
+              ) : (
+                <>Toy and hobby wholesale,<br className="hidden sm:block" />from Nagaoka to Japan and the world.</>
+              )}
+            </h1>
+            <p className="mt-8 max-w-3xl text-base leading-8 text-[#4B4B4B] md:text-lg">
+              {isJa
+                ? "株式会社AiGIVEは、小売店・法人向けの卸売を主力に、小売・買取・マーケティング支援まで手がける新潟県長岡市の会社です。国内だけでなく、海外への輸出にも対応しています。"
+                : "AiGIVE Co., Ltd. is a Nagaoka-based company focused on wholesale for retailers and business customers, supported by retail, buying, marketing, and international export operations."}
+            </p>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <Link href="/contact">
+                <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-[#0017C1] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#00119B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0017C1]">
+                  {isJa ? "法人取引について相談する" : "Discuss B2B business"}
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </Link>
+              <Link href="/services">
+                <a className="inline-flex min-h-12 items-center justify-center rounded-md border border-[#0017C1] px-6 py-3 text-sm font-bold text-[#0017C1] transition-colors hover:bg-[#EBF0FF]">
+                  {t("hero.cta")}
+                </a>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-[#D6D6D6] bg-[#F2F2F2]">
+        <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          {facts.map((fact, index) => (
+            <div
+              key={fact.label}
+              className={`py-6 md:px-6 ${index > 0 ? "border-t border-[#D6D6D6] md:border-t-0 md:border-l" : ""}`}
+            >
+              <div className="text-xs font-bold text-[#626262]">{fact.label}</div>
+              <div className="mt-2 text-sm font-bold leading-6">{fact.value}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="container py-20 md:py-28">
+        <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
+          <div>
+            <p className="text-sm font-bold text-[#0017C1]">CORE BUSINESS</p>
+            <h2 className="mt-4 text-3xl font-bold leading-tight md:text-4xl">
+              {isJa ? "主力は、法人向け卸売です。" : "Wholesale is our core business."}
+            </h2>
+          </div>
+          <div>
+            <p className="text-lg leading-8 text-[#4B4B4B]">{t("services.b2b.desc")}</p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              {[t("services.b2b.list1"), t("services.b2b.list2"), isJa ? "国内・海外への販売" : "Domestic & international sales"].map((item) => (
+                <div key={item} className="flex min-h-24 items-start gap-3 border-t-2 border-[#0017C1] bg-[#F2F2F2] p-5">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0017C1]" />
+                  <span className="text-sm font-bold leading-6">{item}</span>
+                </div>
+              ))}
+            </div>
+            <Link href="/contact">
+              <a className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#0017C1] underline-offset-4 hover:underline">
+                {isJa ? "卸売・法人取引のお問い合わせ" : "Wholesale and B2B inquiries"}
+                <ArrowRight className="h-4 w-4" />
+              </a>
             </Link>
           </div>
         </div>
-        
-        {/* Decorative Wave */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-slate-50" style={{ clipPath: "ellipse(70% 100% at 50% 100%)" }}></div>
       </section>
 
-      {/* Services Section */}
-      <section className="container">
-        <div className="text-center mb-12">
-          <span className="text-indigo-600 font-bold tracking-wider uppercase text-sm bg-indigo-50 px-4 py-1 rounded-full">{t('nav.services')}</span>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mt-4 text-slate-800">{t('services.title')}</h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* B2C Card */}
-          <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group h-full flex flex-col">
-            <div className="h-48 overflow-hidden relative">
-              <img 
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_b2b_business_99741851.jpg" 
-                alt="B2B Services" 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
-              <div className="absolute bottom-4 left-4 text-white flex items-center gap-2">
-                <div className="bg-indigo-500 p-2 rounded-full">
-                  <Handshake className="h-5 w-5" />
-                </div>
-                <span className="font-bold text-lg">B2B</span>
-              </div>
-            </div>
-            <CardContent className="p-6 flex-1 flex flex-col">
-              <h3 className="text-xl font-bold mb-3 text-slate-800">{t('services.b2b.title')}</h3>
-              <p className="text-slate-600 mb-6 flex-1 leading-relaxed">
-                {t('services.b2b.desc')}
-              </p>
-              <Link href="/contact">
-                <Button className="w-full rounded-full bg-indigo-600 hover:bg-indigo-700 text-white mt-auto">
-                  {t('common.contact_us')}
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
-          <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group h-full flex flex-col">
-            <div className="h-48 overflow-hidden relative">
-              <img 
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_b2c_toys_b4a1497b.jpg" 
-                alt="B2C Services" 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
-              <div className="absolute bottom-4 left-4 text-white flex items-center gap-2">
-                <div className="bg-orange-500 p-2 rounded-full">
-                  <ShoppingBag className="h-5 w-5" />
-                </div>
-                <span className="font-bold text-lg">B2C</span>
-              </div>
-            </div>
-            <CardContent className="p-6 flex-1 flex flex-col">
-              <h3 className="text-xl font-bold mb-3 text-slate-800">{t('services.b2c.title')}</h3>
-              <p className="text-slate-600 mb-6 flex-1 leading-relaxed">
-                {t('services.b2c.desc')}
-              </p>
-              <div className="flex flex-wrap gap-2 mt-auto">
-                <Button variant="outline" size="sm" className="rounded-full text-xs border-slate-200 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200">Amazon</Button>
-                <Button variant="outline" size="sm" className="rounded-full text-xs border-slate-200 bg-slate-50 hover:bg-red-50 hover:text-red-600 hover:border-red-200">Rakuten</Button>
-                <Button variant="outline" size="sm" className="rounded-full text-xs border-slate-200 bg-slate-50 hover:bg-yellow-50 hover:text-yellow-600 hover:border-yellow-200">Yahoo!</Button>
-              </div>
-            </CardContent>
-          </Card>
-          <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group h-full flex flex-col">
-            <div className="h-48 overflow-hidden relative">
-              <img 
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_buying_appraisal_b2388309.jpg" 
-                alt="Buying Service" 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
-              <div className="absolute bottom-4 left-4 text-white flex items-center gap-2">
-                <div className="bg-green-500 p-2 rounded-full">
-                  <Handshake className="h-5 w-5" />
-                </div>
-                <span className="font-bold text-lg">Buying</span>
-              </div>
-            </div>
-            <CardContent className="p-6 flex-1 flex flex-col">
-              <h3 className="text-xl font-bold mb-3 text-slate-800">{t('services.buying.title')}</h3>
-              <p className="text-slate-600 mb-6 flex-1 leading-relaxed">
-                {t('services.buying.desc')}
-              </p>
-              <Link href="/services">
-                <Button variant="outline" className="w-full rounded-full border-green-200 text-green-600 hover:bg-green-50 mt-auto">
-                  {t('common.learn_more')}
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
-          <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group h-full flex flex-col">
-            <div className="h-48 overflow-hidden relative">
-              <img 
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_sns_marketing_0357ec50.jpg" 
-                alt="SNS Marketing" 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
-              <div className="absolute bottom-4 left-4 text-white flex items-center gap-2">
-                <div className="bg-pink-500 p-2 rounded-full">
-                  <Smartphone className="h-5 w-5" />
-                </div>
-                <span className="font-bold text-lg">Consulting</span>
-              </div>
-            </div>
-            <CardContent className="p-6 flex-1 flex flex-col">
-              <h3 className="text-xl font-bold mb-3 text-slate-800">{t('services.sns.title')}</h3>
-              <p className="text-slate-600 mb-6 flex-1 leading-relaxed">
-                {t('services.sns.desc')}
-              </p>
-              <Link href="/services">
-                <Button variant="outline" className="w-full rounded-full border-indigo-200 text-indigo-600 hover:bg-indigo-50 mt-auto">
-                  {t('common.learn_more')}
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* Feature Section */}
-      {/* 長岡の玩具店舗（計画中）。2026-08-16 なつき: 「遊ぶ場所が少ない長岡に、子どもたちが遊べる場所を。
-          夏は暑く冬は雪深い土地柄を活かして、地域貢献の場にしたい」。
-          ⚠️ まだ開設していないので、断定しない。「計画中」「準備を進めている」を必ず添える。 */}
-      <section className="py-20" style={{ background: "#F2F2F2" }}>
-        <div className="container">
-          <div className="mx-auto max-w-3xl">
-            <span
-              className="inline-block text-xs font-bold tracking-wider px-3 py-1 rounded-full"
-              style={{ background: "#0017C1", color: "#FFFFFF" }}
-            >
-              {t('store.badge')}
-            </span>
-            <h2
-              className="text-3xl md:text-4xl font-heading font-bold mt-4 leading-snug"
-              style={{ color: "#1A1A1A" }}
-            >
-              {t('store.title')}
-            </h2>
-            <p className="text-lg leading-relaxed mt-6" style={{ color: "#1A1A1A" }}>
-              {t('store.lead')}
-            </p>
-            <p className="text-lg leading-relaxed mt-4" style={{ color: "#1A1A1A" }}>
-              {t('store.body')}
-            </p>
-            <p className="text-sm mt-6" style={{ color: "#626262" }}>
-              {t('store.note')}
-            </p>
+      <section className="border-y border-[#D6D6D6] bg-[#F2F2F2]">
+        <div className="container py-20 md:py-24">
+          <div className="max-w-2xl">
+            <p className="text-sm font-bold text-[#0017C1]">OTHER BUSINESS</p>
+            <h2 className="mt-4 text-3xl font-bold md:text-4xl">{isJa ? "流通を支える、その他の事業" : "Businesses supporting our distribution"}</h2>
+          </div>
+          <div className="mt-10 grid gap-px border border-[#D6D6D6] bg-[#D6D6D6] md:grid-cols-3">
+            {supportingBusinesses.map(({ icon: Icon, title, description }) => (
+              <article key={title} className="bg-white p-7 md:p-8">
+                <Icon className="h-6 w-6 text-[#0017C1]" />
+                <h3 className="mt-6 text-xl font-bold">{title}</h3>
+                <p className="mt-4 text-sm leading-7 text-[#626262]">{description}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-20 relative overflow-hidden">
-        {/* Background Blobs */}
-        <div className="absolute top-0 left-0 w-64 h-64 bg-orange-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 translate-x-1/3 translate-y-1/3"></div>
+      <section className="container py-20 md:py-28">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+          <div>
+            <span className="inline-flex rounded-sm bg-[#0017C1] px-3 py-1 text-xs font-bold text-white">{t("store.badge")}</span>
+            <h2 className="mt-5 text-3xl font-bold leading-tight md:text-5xl">
+              {isJa ? "長岡に、子どもたちが天気を気にせず遊べる場所を。" : "A place in Nagaoka where children can play in any weather."}
+            </h2>
+          </div>
+          <div className="border-l-2 border-[#0017C1] pl-6 md:pl-8">
+            <p className="text-lg leading-8">{t("store.lead")}</p>
+            <p className="mt-5 text-base leading-8 text-[#4B4B4B]">{t("store.body")}</p>
+            <p className="mt-6 text-sm leading-6 text-[#626262]">{t("store.note")}</p>
+          </div>
+        </div>
+      </section>
 
-        <div className="container relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="flex-1">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 text-slate-800 leading-snug">
-                {t('feature.title')}
-              </h2>
-              <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                {t('feature.desc')}
-              </p>
-              <div className="flex gap-4">
-                <div className="flex flex-col items-center p-4 bg-slate-50 rounded-2xl min-w-[100px]">
-                  <span className="text-3xl font-bold text-indigo-600">3+</span>
-                  <span className="text-xs text-slate-500 uppercase tracking-wide mt-1">Services</span>
-                </div>
-                <div className="flex flex-col items-center p-4 bg-slate-50 rounded-2xl min-w-[100px]">
-                  <span className="text-3xl font-bold text-orange-500">100%</span>
-                  <span className="text-xs text-slate-500 uppercase tracking-wide mt-1">Safety</span>
-                </div>
-              </div>
+      <section className="border-y border-[#D6D6D6] bg-[#F2F2F2]">
+        <div className="container grid gap-8 py-16 md:grid-cols-[1fr_auto] md:items-center">
+          <div>
+            <div className="flex items-center gap-3 text-[#0017C1]">
+              <Building2 className="h-6 w-6" />
+              <Globe2 className="h-6 w-6" />
             </div>
-            <div className="flex-1 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
-                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/hero_family_toys_a7749c0e.jpg" alt="Quality Toys" className="w-full object-cover" />
-              </div>
+            <h2 className="mt-5 text-2xl font-bold md:text-3xl">{isJa ? "取引前に確認いただける会社情報を公開しています。" : "Corporate information is available for your due diligence."}</h2>
+            <p className="mt-3 text-sm leading-7 text-[#626262]">{isJa ? "法人番号・古物商許可・適格請求書発行事業者番号などをご確認いただけます。" : "Corporate number, secondhand dealer license, invoice registration and other details are publicly listed."}</p>
+          </div>
+          <Link href="/company">
+            <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-[#1A1A1A] px-6 py-3 text-sm font-bold hover:bg-white">
+              {isJa ? "会社概要を見る" : "View company profile"}
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </Link>
+        </div>
+      </section>
+
+      <section className="container py-20 md:py-24">
+        <div className="bg-[#0017C1] px-6 py-12 text-white md:px-12 md:py-14">
+          <p className="text-sm font-bold text-white/80">CONTACT</p>
+          <div className="mt-4 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+            <div>
+              <h2 className="text-3xl font-bold md:text-4xl">{isJa ? "法人のお取引・卸売のご相談" : "Wholesale and business inquiries"}</h2>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/85">{isJa ? "取扱商品、数量、納期、海外向け取引など、まずはお問い合わせください。" : "Contact us about products, quantities, lead times, export transactions and other business requirements."}</p>
             </div>
+            <Link href="/contact">
+              <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-bold text-[#0017C1] hover:bg-[#F2F2F2]">
+                {isJa ? "お問い合わせ" : "Contact us"}
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </Link>
           </div>
         </div>
       </section>
