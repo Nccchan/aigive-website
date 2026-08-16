@@ -1,6 +1,5 @@
 import { Link, useLocation } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Button } from "@/components/ui/button";
 import { Globe, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -10,84 +9,82 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleLanguage = () => {
-    setLanguage(language === 'ja' ? 'en' : 'ja');
-  };
+  const toggleLanguage = () => setLanguage(language === "ja" ? "en" : "ja");
+  const isJa = language === "ja";
 
   const navItems = [
-    { href: "/", label: t('nav.home') },
-    { href: "/services", label: t('nav.services') },
-    { href: "/company", label: t('nav.company') },
-    { href: "/contact", label: t('nav.contact') },
+    { href: "/services", label: t("nav.services") },
+    { href: "/company", label: t("nav.company") },
+    { href: "/contact", label: t("nav.contact") },
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 font-sans text-slate-800">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
-        <div className="container flex h-16 items-center justify-between">
+    <div className="min-h-screen flex flex-col bg-white font-sans text-[#1A1A1A]">
+      <header className="sticky top-0 z-50 w-full border-b border-[#D6D6D6] bg-white/95 backdrop-blur">
+        <div className="container flex h-[72px] items-center justify-between gap-6">
           <Link href="/">
-            {/* 2026-08-16 なつき「トップのAiGIVEはダサいので株式会社AiGIVEへ」→「丸Aもだっさいのでやめて」。
-                頭文字のアイコンは廃止。社名だけを置く。ロゴが要るなら本物のロゴを作ってから入れる。 */}
-            <a className="font-heading font-bold text-lg md:text-xl hover:opacity-80 transition-opacity whitespace-nowrap" style={{ color: "#0017C1" }}>
+            <a className="text-lg font-bold tracking-[-0.01em] text-[#1A1A1A] hover:text-[#0017C1] md:text-xl">
               株式会社AiGIVE
             </a>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden items-center gap-7 md:flex">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href}>
                 <a className={cn(
-                  "text-sm font-medium transition-colors hover:text-indigo-600",
-                  location === item.href ? "text-indigo-600 font-bold" : "text-slate-600"
+                  "border-b-2 border-transparent py-2 text-sm font-bold transition-colors hover:text-[#0017C1]",
+                  location === item.href ? "border-[#0017C1] text-[#0017C1]" : "text-[#4B4B4B]"
                 )}>
                   {item.label}
                 </a>
               </Link>
             ))}
-            <Button 
-              variant="ghost" 
-              size="sm" 
+            <button
+              type="button"
               onClick={toggleLanguage}
-              className="ml-4 rounded-full w-11 h-11 p-0 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-md border border-[#D6D6D6] px-3 text-sm font-bold text-[#4B4B4B] hover:border-[#0017C1] hover:text-[#0017C1]"
+              aria-label={isJa ? "Switch to English" : "日本語に切り替える"}
             >
-              <Globe className="h-5 w-5" />
-              <span className="sr-only">Switch Language</span>
-            </Button>
+              <Globe className="h-4 w-4" />
+              <span>{isJa ? "EN" : "JA"}</span>
+            </button>
+            <Link href="/contact">
+              <a className="inline-flex min-h-11 items-center justify-center rounded-md bg-[#0017C1] px-5 text-sm font-bold text-white hover:bg-[#00119B]">
+                {isJa ? "法人取引のご相談" : "B2B inquiry"}
+              </a>
+            </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-4 md:hidden">
-            <Button 
-              variant="ghost" 
-              size="sm" 
+          <div className="flex items-center gap-2 md:hidden">
+            <button
+              type="button"
               onClick={toggleLanguage}
-              className="rounded-full w-11 h-11 p-0 text-slate-600"
+              className="inline-flex h-11 min-w-11 items-center justify-center gap-1 rounded-md border border-[#D6D6D6] px-2 text-xs font-bold"
+              aria-label={isJa ? "Switch to English" : "日本語に切り替える"}
             >
-              <Globe className="h-5 w-5" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="icon"
+              <Globe className="h-4 w-4" />
+              {isJa ? "EN" : "JA"}
+            </button>
+            <button
+              type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-slate-600"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-[#D6D6D6]"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
           </div>
         </div>
 
-        {/* Mobile Nav */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-slate-200 bg-white">
-            <div className="container py-4 flex flex-col gap-4">
+          <div className="border-t border-[#D6D6D6] bg-white md:hidden">
+            <div className="container flex flex-col py-3">
               {navItems.map((item) => (
                 <Link key={item.href} href={item.href}>
-                  <a 
+                  <a
                     className={cn(
-                      "block py-2 text-base font-medium transition-colors hover:text-indigo-600",
-                      location === item.href ? "text-indigo-600 font-bold" : "text-slate-600"
+                      "border-b border-[#E8E8E8] py-4 text-base font-bold",
+                      location === item.href ? "text-[#0017C1]" : "text-[#1A1A1A]"
                     )}
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -95,50 +92,54 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </a>
                 </Link>
               ))}
+              <Link href="/contact">
+                <a
+                  className="mt-4 inline-flex min-h-12 items-center justify-center rounded-md bg-[#0017C1] px-5 text-sm font-bold text-white"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {isJa ? "法人取引について相談する" : "Discuss B2B business"}
+                </a>
+              </Link>
             </div>
           </div>
         )}
       </header>
 
-      {/* Main Content */}
-      <main className="flex-1">
-        {children}
-      </main>
+      <main className="flex-1">{children}</main>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-slate-200 py-12">
+      <footer className="border-t border-[#D6D6D6] bg-[#F2F2F2] py-12">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div className="col-span-1 md:col-span-2">
+          <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
+            <div>
               <Link href="/">
-                <a className="font-heading font-bold text-xl mb-4 block" style={{ color: "#0017C1" }}>株式会社AiGIVE</a>
+                <a className="text-lg font-bold">株式会社AiGIVE</a>
               </Link>
-              <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
-                {t('hero.title')}
+              <p className="mt-4 max-w-md text-sm leading-7 text-[#626262]">
+                {isJa
+                  ? "玩具・ホビーの法人向け卸売を主力に、小売・買取・マーケティング支援、海外輸出を行っています。"
+                  : "Toy and hobby wholesaler serving business customers in Japan and overseas, supported by retail, buying and marketing operations."}
               </p>
             </div>
             <div>
-              <h4 className="font-bold text-slate-800 mb-4">{t('nav.services')}</h4>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li><Link href="/services"><a className="hover:text-indigo-600">{t('services.b2c.title')}</a></Link></li>
-                <li><Link href="/services"><a className="hover:text-indigo-600">{t('services.b2b.title')}</a></Link></li>
-                <li><Link href="/services"><a className="hover:text-indigo-600">{t('services.sns.title')}</a></Link></li>
+              <h4 className="text-sm font-bold">{t("nav.services")}</h4>
+              <ul className="mt-4 space-y-3 text-sm text-[#626262]">
+                <li><Link href="/services"><a className="hover:text-[#0017C1]">{t("services.b2b.title")}</a></Link></li>
+                <li><Link href="/services"><a className="hover:text-[#0017C1]">{t("services.b2c.title")}</a></Link></li>
+                <li><Link href="/services"><a className="hover:text-[#0017C1]">{t("services.buying.title")}</a></Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-slate-800 mb-4">{t('nav.company')}</h4>
-              <ul className="space-y-2 text-sm text-slate-600">
-                <li><Link href="/company"><a className="hover:text-indigo-600">{t('nav.company')}</a></Link></li>
-                <li><Link href="/contact"><a className="hover:text-indigo-600">{t('nav.contact')}</a></Link></li>
-                <li><Link href="/privacy"><a className="hover:text-indigo-600">{t('footer.privacy')}</a></Link></li>
+              <h4 className="text-sm font-bold">{t("nav.company")}</h4>
+              <ul className="mt-4 space-y-3 text-sm text-[#626262]">
+                <li><Link href="/company"><a className="hover:text-[#0017C1]">{t("nav.company")}</a></Link></li>
+                <li><Link href="/contact"><a className="hover:text-[#0017C1]">{t("nav.contact")}</a></Link></li>
+                <li><Link href="/privacy"><a className="hover:text-[#0017C1]">{t("footer.privacy")}</a></Link></li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-slate-100 pt-8 text-center text-sm text-slate-400">
-            <div className="mb-2 flex flex-col md:flex-row justify-center gap-2 md:gap-4">
-              <span>{t('company.license_auth_value')} {t('company.license_value')}</span>
-            </div>
-            {t('footer.copyright')}
+          <div className="mt-10 border-t border-[#D6D6D6] pt-6 text-xs leading-6 text-[#626262] md:flex md:items-center md:justify-between">
+            <div>{isJa ? "新潟県公安委員会 古物商許可 第461350000709号" : "Secondhand Dealer License No. 461350000709 / Niigata Prefectural Public Safety Commission"}</div>
+            <div className="mt-2 md:mt-0">{t("footer.copyright")}</div>
           </div>
         </div>
       </footer>
