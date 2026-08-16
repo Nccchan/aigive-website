@@ -26,13 +26,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
         <div className="container flex h-16 items-center justify-between">
-          <Link href="/">
-            {/* 2026-08-16 なつき「トップのAiGIVEはダサいので株式会社AiGIVEへ」→「丸Aもだっさいのでやめて」。
-                頭文字のアイコンは廃止。社名だけを置く。ロゴが要るなら本物のロゴを作ってから入れる。 */}
-            <a className="font-heading font-bold text-lg md:text-xl hover:opacity-80 transition-opacity whitespace-nowrap" style={{ color: "#0017C1" }}>
-              株式会社AiGIVE
-            </a>
-          </Link>
+          {/* 2026-08-16 なつき「トップのAiGIVEはダサいので株式会社AiGIVEへ」→「丸Aもだっさいのでやめて」。
+              頭文字のアイコンは廃止。社名だけを置く。ロゴが要るなら本物のロゴを作ってから入れる。
+              社名の右に、何をしている会社かを一言添える（初見の法人がここで判断するため）。 */}
+          <div className="flex items-center gap-6">
+            <Link href="/">
+              <a className="font-heading font-bold text-lg md:text-xl hover:opacity-80 transition-opacity whitespace-nowrap" style={{ color: "#0017C1" }}>
+                株式会社AiGIVE
+              </a>
+            </Link>
+            <span className="hidden lg:inline-block border-l pl-6 text-xs" style={{ borderColor: "#D6D6D6", color: "#626262" }}>
+              {t('hero.badge')}
+            </span>
+          </div>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
@@ -50,11 +56,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               variant="ghost" 
               size="sm" 
               onClick={toggleLanguage}
-              className="ml-4 rounded-full w-10 h-10 p-0 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50"
+              className="rounded-full w-10 h-10 p-0 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50"
             >
               <Globe className="h-5 w-5" />
               <span className="sr-only">Switch Language</span>
             </Button>
+            <Link href="/contact">
+              <a className="px-4 py-2 text-xs font-medium text-white whitespace-nowrap" style={{ background: "#0017C1" }}>
+                {t('hero.cta')}
+              </a>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
