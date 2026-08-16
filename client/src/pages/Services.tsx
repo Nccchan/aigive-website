@@ -34,8 +34,8 @@ export default function Services() {
             </div>
             <div className="mt-8 border-l-2 border-[#0017C1] pl-5 text-sm leading-7 text-[#4B4B4B]">
               {isJa
-                ? "小売店・法人のお客様を対象に、数量・納期・支払条件など個別にご相談を承ります。海外向け取引についてもお問い合わせください。"
-                : "We work with retailers and business customers on quantities, lead times and commercial terms. International and export transactions are also welcome."}
+                ? "小売店・法人のお客様を対象に、数量・納期・支払条件など個別にご相談を承ります。"
+                : "We work with retailers and business customers on quantities, lead times and commercial terms."}
             </div>
             <Link href="/contact">
               <a className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-[#0017C1] px-6 py-3 text-sm font-bold text-white hover:bg-[#00119B]">

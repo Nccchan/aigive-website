@@ -8,13 +8,6 @@ export default function Home() {
   const { language, t } = useLanguage();
   const isJa = language === "ja";
 
-  const facts = [
-    { label: isJa ? "法人番号" : "Corporate No.", value: "5110001038461" },
-    { label: isJa ? "古物商許可" : "Secondhand Dealer License", value: "第461350000709号" },
-    { label: isJa ? "適格請求書発行事業者" : "Invoice Registration", value: "T5110001038461" },
-    { label: isJa ? "所在地" : "Location", value: isJa ? "新潟県長岡市" : "Nagaoka, Niigata, Japan" },
-  ];
-
   // 2026-08-16 なつき「いいところだけ採用する」。
   // 骨格は法人向けの新しい版のまま、旧トップにあった商品写真を戻す。
   // アイコンだけだと何を売っている会社か伝わらない＝旧版の良かったところ。
@@ -46,15 +39,15 @@ export default function Home() {
           <div className="max-w-4xl">
             <h1 className="max-w-4xl text-4xl font-bold leading-[1.25] tracking-[-0.02em] md:text-6xl lg:text-7xl">
               {isJa ? (
-                <>玩具・ホビーの卸売を、<br className="hidden sm:block" />長岡から全国・海外へ。</>
+                <>玩具・ホビーの卸売を、<br className="hidden sm:block" />長岡から全国へ。</>
               ) : (
-                <>Toy and hobby wholesale,<br className="hidden sm:block" />from Nagaoka to Japan and the world.</>
+                <>Toy and hobby wholesale,<br className="hidden sm:block" />from Nagaoka across Japan.</>
               )}
             </h1>
             <p className="mt-8 max-w-3xl text-base leading-8 text-[#4B4B4B] md:text-lg">
               {isJa
-                ? "株式会社AiGIVEは、小売店・法人向けの卸売を主力に、小売・買取・マーケティング支援まで手がける新潟県長岡市の会社です。国内だけでなく、海外への輸出にも対応しています。"
-                : "AiGIVE Co., Ltd. is a Nagaoka-based company focused on wholesale for retailers and business customers, supported by retail, buying, marketing, and international export operations."}
+                ? "株式会社AiGIVEは、小売店・法人向けの卸売を中心に、小売・買取・マーケティング支援まで手がける新潟県長岡市の会社です。"
+                : "AiGIVE Co., Ltd. is a Nagaoka-based company centred on wholesale for retailers and business customers, supported by retail, buying and marketing operations."}
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Link href="/contact">
@@ -73,31 +66,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-b border-[#D6D6D6] bg-[#F2F2F2]">
-        <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          {facts.map((fact, index) => (
-            <div
-              key={fact.label}
-              className={`py-6 md:px-6 ${index > 0 ? "border-t border-[#D6D6D6] md:border-t-0 md:border-l" : ""}`}
-            >
-              <div className="text-xs font-bold text-[#626262]">{fact.label}</div>
-              <div className="mt-2 text-sm font-bold leading-6">{fact.value}</div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       <section className="container py-20 md:py-28">
         <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
           <div>
             <h2 className="mt-4 text-3xl font-bold leading-tight md:text-4xl">
-              {isJa ? "主力は、法人向け卸売です。" : "Wholesale is our core business."}
+              {isJa ? "卸売事業 (B2B)" : "Wholesale (B2B)"}
             </h2>
           </div>
           <div>
             <p className="text-lg leading-8 text-[#4B4B4B]">{t("services.b2b.desc")}</p>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {[t("services.b2b.list1"), t("services.b2b.list2"), isJa ? "国内・海外への販売" : "Domestic & international sales"].map((item) => (
+              {[t("services.b2b.list1"), t("services.b2b.list2"), t("services.b2b.list3")].map((item) => (
                 <div key={item} className="flex min-h-24 items-start gap-3 border-t-2 border-[#0017C1] bg-[#F2F2F2] p-5">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0017C1]" />
                   <span className="text-sm font-bold leading-6">{item}</span>
@@ -184,7 +164,7 @@ export default function Home() {
           <div className="mt-4 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
             <div>
               <h2 className="text-3xl font-bold md:text-4xl">{isJa ? "法人のお取引・卸売のご相談" : "Wholesale and business inquiries"}</h2>
-              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/85">{isJa ? "取扱商品、数量、納期、海外向け取引など、まずはお問い合わせください。" : "Contact us about products, quantities, lead times, export transactions and other business requirements."}</p>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-white/85">{isJa ? "取扱商品、数量、納期など、まずはお問い合わせください。" : "Contact us about products, quantities, lead times and other business requirements."}</p>
             </div>
             <Link href="/contact">
               <a className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-bold text-[#0017C1] hover:bg-[#F2F2F2]">

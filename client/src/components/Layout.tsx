@@ -116,8 +116,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </Link>
               <p className="mt-4 max-w-md text-sm leading-7 text-[#626262]">
                 {isJa
-                  ? "玩具・ホビーの法人向け卸売を主力に、小売・買取・マーケティング支援、海外輸出を行っています。"
-                  : "Toy and hobby wholesaler serving business customers in Japan and overseas, supported by retail, buying and marketing operations."}
+                  ? "玩具・ホビーの法人向け卸売を中心に、小売・買取・マーケティング支援を行っています。"
+                  : "Toy and hobby wholesaler serving business customers, supported by retail, buying and marketing operations."}
               </p>
             </div>
             <div>
