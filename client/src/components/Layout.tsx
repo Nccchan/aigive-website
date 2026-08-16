@@ -27,11 +27,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
         <div className="container flex h-16 items-center justify-between">
           <Link href="/">
-            {/* 2026-08-16 なつき「トップのAiGIVEはダサいので株式会社AiGIVEへ」。
-                社名が長くなるので文字を一段小さくして、スマホで折り返さないようにする。 */}
-            <a className="flex items-center gap-2 font-heading font-bold text-lg md:text-xl hover:opacity-80 transition-opacity" style={{ color: "#0017C1" }}>
-              <span className="text-white w-8 h-8 flex items-center justify-center rounded-lg shrink-0" style={{ background: "#0017C1" }}>A</span>
-              <span className="whitespace-nowrap">株式会社AiGIVE</span>
+            {/* 2026-08-16 なつき「トップのAiGIVEはダサいので株式会社AiGIVEへ」→「丸Aもだっさいのでやめて」。
+                頭文字のアイコンは廃止。社名だけを置く。ロゴが要るなら本物のロゴを作ってから入れる。 */}
+            <a className="font-heading font-bold text-lg md:text-xl hover:opacity-80 transition-opacity whitespace-nowrap" style={{ color: "#0017C1" }}>
+              株式会社AiGIVE
             </a>
           </Link>
 
