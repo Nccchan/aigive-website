@@ -50,7 +50,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               variant="ghost" 
               size="sm" 
               onClick={toggleLanguage}
-              className="ml-4 rounded-full w-10 h-10 p-0 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50"
+              className="ml-4 rounded-full w-11 h-11 p-0 text-slate-600 hover:text-indigo-600 hover:bg-indigo-50"
             >
               <Globe className="h-5 w-5" />
               <span className="sr-only">Switch Language</span>
@@ -63,7 +63,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               variant="ghost" 
               size="sm" 
               onClick={toggleLanguage}
-              className="rounded-full w-10 h-10 p-0 text-slate-600"
+              className="rounded-full w-11 h-11 p-0 text-slate-600"
             >
               <Globe className="h-5 w-5" />
             </Button>
