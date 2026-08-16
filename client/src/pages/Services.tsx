@@ -20,48 +20,14 @@ export default function Services() {
       </div>
 
       <div className="container mt-16 flex flex-col gap-24">
-        {/* B2C Section */}
-        <div className="flex flex-col md:flex-row gap-12 items-center">
-          <div className="flex-1 order-2 md:order-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-sm font-bold mb-4">
-              <ShoppingBag className="w-4 h-4" />
-              <span>B2C Retail</span>
-            </div>
-            <h2 className="text-3xl font-heading font-bold mb-6 text-slate-800">{t('services.b2c.title')}</h2>
-            <p className="text-slate-600 text-lg leading-relaxed mb-6">
-              {t('services.b2c.desc')}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <a href="https://www.amazon.co.jp/b?node=26286483051&ie=UTF8&marketplaceID=A1VC38T7YXB528&me=A20GZZNLS2BAB2" target="_blank" rel="noopener noreferrer">
-                <Badge variant="secondary" className="px-4 py-2 text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">Amazon</Badge>
-              </a>
-              <a href="/coming-soon">
-                <Badge variant="secondary" className="px-4 py-2 text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">Rakuten</Badge>
-              </a>
-              <a href="/coming-soon">
-                <Badge variant="secondary" className="px-4 py-2 text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">Yahoo! Shopping</Badge>
-              </a>
-            </div>
-          </div>
-          <div className="flex-1 order-1 md:order-2">
-            <div className="rounded-3xl overflow-hidden shadow-xl soft-shadow">
-              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_b2c_toys_b4a1497b.jpg" alt="B2C Retail" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-            </div>
-          </div>
-        </div>
-
         {/* B2B Section */}
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="flex-1">
-            <div className="rounded-3xl overflow-hidden shadow-xl soft-shadow">
+            <div className="overflow-hidden border" style={{ borderColor: "#D6D6D6" }}>
               <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_b2b_business_99741851.jpg" alt="B2B Wholesale" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </div>
           <div className="flex-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-bold mb-4">
-              <Handshake className="w-4 h-4" />
-              <span>B2B Wholesale</span>
-            </div>
             <h2 className="text-3xl font-heading font-bold mb-6 text-slate-800">{t('services.b2b.title')}</h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-6">
               {t('services.b2b.desc')}
@@ -83,13 +49,35 @@ export default function Services() {
           </div>
         </div>
 
+        {/* B2C Section */}
+        <div className="flex flex-col md:flex-row gap-12 items-center">
+          <div className="flex-1 order-2 md:order-1">
+            <h2 className="text-3xl font-heading font-bold mb-6 text-slate-800">{t('services.b2c.title')}</h2>
+            <p className="text-slate-600 text-lg leading-relaxed mb-6">
+              {t('services.b2c.desc')}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a href="https://www.amazon.co.jp/b?node=26286483051&ie=UTF8&marketplaceID=A1VC38T7YXB528&me=A20GZZNLS2BAB2" target="_blank" rel="noopener noreferrer">
+                <Badge variant="secondary" className="px-4 py-2 text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">Amazon</Badge>
+              </a>
+              <a href="/coming-soon">
+                <Badge variant="secondary" className="px-4 py-2 text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">Rakuten</Badge>
+              </a>
+              <a href="/coming-soon">
+                <Badge variant="secondary" className="px-4 py-2 text-sm bg-slate-100 text-slate-700 hover:bg-slate-200 cursor-pointer">Yahoo! Shopping</Badge>
+              </a>
+            </div>
+          </div>
+          <div className="flex-1 order-1 md:order-2">
+            <div className="overflow-hidden border" style={{ borderColor: "#D6D6D6" }}>
+              <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_b2c_toys_b4a1497b.jpg" alt="B2C Retail" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            </div>
+          </div>
+        </div>
+
         {/* Buying Service Section */}
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="flex-1 order-2 md:order-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 text-green-700 text-sm font-bold mb-4">
-              <Handshake className="w-4 h-4" />
-              <span>Buying Service</span>
-            </div>
             <h2 className="text-3xl font-heading font-bold mb-6 text-slate-800">{t('services.buying.title')}</h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-6">
               {t('services.buying.desc')}
@@ -136,7 +124,7 @@ export default function Services() {
 
           </div>
           <div className="flex-1 order-1 md:order-2">
-            <div className="rounded-3xl overflow-hidden shadow-xl soft-shadow">
+            <div className="overflow-hidden border" style={{ borderColor: "#D6D6D6" }}>
               <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_buying_appraisal_b2388309.jpg" alt="Buying Service" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </div>
@@ -145,10 +133,6 @@ export default function Services() {
         {/* SNS Marketing Section */}
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <div className="flex-1 order-2 md:order-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-100 text-pink-700 text-sm font-bold mb-4">
-              <Smartphone className="w-4 h-4" />
-              <span>Consulting</span>
-            </div>
             <h2 className="text-3xl font-heading font-bold mb-6 text-slate-800">{t('services.sns.title')}</h2>
             <p className="text-slate-600 text-lg leading-relaxed mb-6">
               {t('services.sns.desc')}
@@ -163,7 +147,7 @@ export default function Services() {
             </Card>
           </div>
           <div className="flex-1 order-1 md:order-2">
-            <div className="rounded-3xl overflow-hidden shadow-xl soft-shadow">
+            <div className="overflow-hidden border" style={{ borderColor: "#D6D6D6" }}>
               <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_sns_marketing_0357ec50.jpg" alt="SNS Marketing" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
             </div>
           </div>
