@@ -52,35 +52,6 @@ export default function Home() {
           <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group h-full flex flex-col">
             <div className="h-48 overflow-hidden relative">
               <img 
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_b2c_toys_b4a1497b.jpg" 
-                alt="B2C Services" 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
-              <div className="absolute bottom-4 left-4 text-white flex items-center gap-2">
-                <div className="bg-orange-500 p-2 rounded-full">
-                  <ShoppingBag className="h-5 w-5" />
-                </div>
-                <span className="font-bold text-lg">B2C</span>
-              </div>
-            </div>
-            <CardContent className="p-6 flex-1 flex flex-col">
-              <h3 className="text-xl font-bold mb-3 text-slate-800">{t('services.b2c.title')}</h3>
-              <p className="text-slate-600 mb-6 flex-1 leading-relaxed">
-                {t('services.b2c.desc')}
-              </p>
-              <div className="flex flex-wrap gap-2 mt-auto">
-                <Button variant="outline" size="sm" className="rounded-full text-xs border-slate-200 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200">Amazon</Button>
-                <Button variant="outline" size="sm" className="rounded-full text-xs border-slate-200 bg-slate-50 hover:bg-red-50 hover:text-red-600 hover:border-red-200">Rakuten</Button>
-                <Button variant="outline" size="sm" className="rounded-full text-xs border-slate-200 bg-slate-50 hover:bg-yellow-50 hover:text-yellow-600 hover:border-yellow-200">Yahoo!</Button>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* B2B Card */}
-          <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group h-full flex flex-col">
-            <div className="h-48 overflow-hidden relative">
-              <img 
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_b2b_business_99741851.jpg" 
                 alt="B2B Services" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -105,8 +76,33 @@ export default function Home() {
               </Link>
             </CardContent>
           </Card>
-
-          {/* Buying Service Card */}
+          <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group h-full flex flex-col">
+            <div className="h-48 overflow-hidden relative">
+              <img 
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/service_b2c_toys_b4a1497b.jpg" 
+                alt="B2C Services" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+              <div className="absolute bottom-4 left-4 text-white flex items-center gap-2">
+                <div className="bg-orange-500 p-2 rounded-full">
+                  <ShoppingBag className="h-5 w-5" />
+                </div>
+                <span className="font-bold text-lg">B2C</span>
+              </div>
+            </div>
+            <CardContent className="p-6 flex-1 flex flex-col">
+              <h3 className="text-xl font-bold mb-3 text-slate-800">{t('services.b2c.title')}</h3>
+              <p className="text-slate-600 mb-6 flex-1 leading-relaxed">
+                {t('services.b2c.desc')}
+              </p>
+              <div className="flex flex-wrap gap-2 mt-auto">
+                <Button variant="outline" size="sm" className="rounded-full text-xs border-slate-200 bg-slate-50 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200">Amazon</Button>
+                <Button variant="outline" size="sm" className="rounded-full text-xs border-slate-200 bg-slate-50 hover:bg-red-50 hover:text-red-600 hover:border-red-200">Rakuten</Button>
+                <Button variant="outline" size="sm" className="rounded-full text-xs border-slate-200 bg-slate-50 hover:bg-yellow-50 hover:text-yellow-600 hover:border-yellow-200">Yahoo!</Button>
+              </div>
+            </CardContent>
+          </Card>
           <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group h-full flex flex-col">
             <div className="h-48 overflow-hidden relative">
               <img 
@@ -134,8 +130,6 @@ export default function Home() {
               </Link>
             </CardContent>
           </Card>
-
-          {/* SNS Card */}
           <Card className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group h-full flex flex-col">
             <div className="h-48 overflow-hidden relative">
               <img 

@@ -27,9 +27,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
         <div className="container flex h-16 items-center justify-between">
           <Link href="/">
-            <a className="flex items-center gap-2 font-heading font-bold text-2xl text-indigo-700 hover:opacity-80 transition-opacity">
-              <span className="bg-indigo-600 text-white w-8 h-8 flex items-center justify-center rounded-lg">A</span>
-              AiGIVE
+            {/* 2026-08-16 なつき「トップのAiGIVEはダサいので株式会社AiGIVEへ」。
+                社名が長くなるので文字を一段小さくして、スマホで折り返さないようにする。 */}
+            <a className="flex items-center gap-2 font-heading font-bold text-lg md:text-xl hover:opacity-80 transition-opacity" style={{ color: "#0017C1" }}>
+              <span className="text-white w-8 h-8 flex items-center justify-center rounded-lg shrink-0" style={{ background: "#0017C1" }}>A</span>
+              <span className="whitespace-nowrap">株式会社AiGIVE</span>
             </a>
           </Link>
 
@@ -110,7 +112,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div className="col-span-1 md:col-span-2">
               <Link href="/">
-                <a className="font-heading font-bold text-xl text-indigo-700 mb-4 block">AiGIVE</a>
+                <a className="font-heading font-bold text-xl mb-4 block" style={{ color: "#0017C1" }}>株式会社AiGIVE</a>
               </Link>
               <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
                 {t('hero.title')}

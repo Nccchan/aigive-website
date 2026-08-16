@@ -1,6 +1,29 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* ------------------------------------------------------------------
+   デジタル庁デザインシステム(DADS)の色に寄せる（2026-08-16 なつき指示）。
+   個々のクラスを書き換えるとページごとに漏れるので、**Tailwindの色そのものを差し替える**。
+   本文 #1A1A1A / 強調・リンク #0017C1 / 補助文字 #626262 / 罫 #D6D6D6 / 背景 #F2F2F2
+   ------------------------------------------------------------------ */
+@theme {
+  --color-indigo-50:  #EBF0FF;
+  --color-indigo-100: #D6E0FF;
+  --color-indigo-600: #0017C1;
+  --color-indigo-700: #00119B;
+  --color-indigo-800: #000B75;
+  --color-orange-50:  #FFF4E5;
+  --color-orange-100: #FFE7C7;
+  --color-orange-500: #B85C00;
+  --color-orange-600: #9A4D00;
+  --color-slate-50:   #F2F2F2;
+  --color-slate-200:  #D6D6D6;
+  --color-slate-500:  #626262;
+  --color-slate-600:  #4B4B4B;
+  --color-slate-800:  #1A1A1A;
+}
+
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
