@@ -19,7 +19,6 @@ export default function Services() {
       <section className="container py-20 md:py-28">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div>
-            <span className="inline-flex rounded-sm bg-[#0017C1] px-3 py-1 text-xs font-bold text-white">CORE BUSINESS</span>
             <h2 className="mt-5 text-3xl font-bold leading-tight md:text-4xl">{t("services.b2b.title")}</h2>
             <p className="mt-3 text-sm font-bold text-[#626262]">B2B WHOLESALE</p>
           </div>
@@ -51,7 +50,6 @@ export default function Services() {
       <section className="border-y border-[#D6D6D6] bg-[#F2F2F2]">
         <div className="container py-20 md:py-24">
           <div className="max-w-2xl">
-            <p className="text-sm font-bold text-[#0017C1]">OTHER BUSINESS</p>
             <h2 className="mt-4 text-3xl font-bold md:text-4xl">{isJa ? "その他の事業" : "Other businesses"}</h2>
           </div>
 

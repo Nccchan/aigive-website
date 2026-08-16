@@ -2,6 +2,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowRight, Building2, CheckCircle2, Globe2, PackageCheck, Store, Users } from "lucide-react";
 import { Link } from "wouter";
 
+const IMAGE_BASE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/";
+
 export default function Home() {
   const { language, t } = useLanguage();
   const isJa = language === "ja";
@@ -13,19 +15,25 @@ export default function Home() {
     { label: isJa ? "所在地" : "Location", value: isJa ? "新潟県長岡市" : "Nagaoka, Niigata, Japan" },
   ];
 
+  // 2026-08-16 なつき「いいところだけ採用する」。
+  // 骨格は法人向けの新しい版のまま、旧トップにあった商品写真を戻す。
+  // アイコンだけだと何を売っている会社か伝わらない＝旧版の良かったところ。
   const supportingBusinesses = [
     {
       icon: Store,
+      image: `${IMAGE_BASE}service_b2c_toys_b4a1497b.jpg`,
       title: t("services.b2c.title"),
       description: t("services.b2c.desc"),
     },
     {
       icon: PackageCheck,
+      image: `${IMAGE_BASE}service_buying_appraisal_b2388309.jpg`,
       title: t("services.buying.title"),
       description: t("services.buying.desc"),
     },
     {
       icon: Users,
+      image: `${IMAGE_BASE}service_sns_marketing_0357ec50.jpg`,
       title: t("services.sns.title"),
       description: t("services.sns.desc"),
     },
@@ -36,9 +44,6 @@ export default function Home() {
       <section className="border-b border-[#D6D6D6]">
         <div className="container py-20 md:py-28 lg:py-32">
           <div className="max-w-4xl">
-            <p className="mb-5 text-sm font-bold tracking-[0.08em] text-[#0017C1]">
-              AIGIVE / TOY & HOBBY WHOLESALE
-            </p>
             <h1 className="max-w-4xl text-4xl font-bold leading-[1.25] tracking-[-0.02em] md:text-6xl lg:text-7xl">
               {isJa ? (
                 <>玩具・ホビーの卸売を、<br className="hidden sm:block" />長岡から全国・海外へ。</>
@@ -85,7 +90,6 @@ export default function Home() {
       <section className="container py-20 md:py-28">
         <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
           <div>
-            <p className="text-sm font-bold text-[#0017C1]">CORE BUSINESS</p>
             <h2 className="mt-4 text-3xl font-bold leading-tight md:text-4xl">
               {isJa ? "主力は、法人向け卸売です。" : "Wholesale is our core business."}
             </h2>
@@ -113,15 +117,17 @@ export default function Home() {
       <section className="border-y border-[#D6D6D6] bg-[#F2F2F2]">
         <div className="container py-20 md:py-24">
           <div className="max-w-2xl">
-            <p className="text-sm font-bold text-[#0017C1]">OTHER BUSINESS</p>
             <h2 className="mt-4 text-3xl font-bold md:text-4xl">{isJa ? "流通を支える、その他の事業" : "Businesses supporting our distribution"}</h2>
           </div>
           <div className="mt-10 grid gap-px border border-[#D6D6D6] bg-[#D6D6D6] md:grid-cols-3">
-            {supportingBusinesses.map(({ icon: Icon, title, description }) => (
-              <article key={title} className="bg-white p-7 md:p-8">
-                <Icon className="h-6 w-6 text-[#0017C1]" />
-                <h3 className="mt-6 text-xl font-bold">{title}</h3>
-                <p className="mt-4 text-sm leading-7 text-[#626262]">{description}</p>
+            {supportingBusinesses.map(({ icon: Icon, image, title, description }) => (
+              <article key={title} className="flex flex-col bg-white">
+                <img src={image} alt="" className="h-44 w-full object-cover" loading="lazy" />
+                <div className="flex-1 p-7 md:p-8">
+                  <Icon className="h-6 w-6 text-[#0017C1]" />
+                  <h3 className="mt-5 text-xl font-bold">{title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-[#626262]">{description}</p>
+                </div>
               </article>
             ))}
           </div>
@@ -141,6 +147,16 @@ export default function Home() {
             <p className="mt-5 text-base leading-8 text-[#4B4B4B]">{t("store.body")}</p>
             <p className="mt-6 text-sm leading-6 text-[#626262]">{t("store.note")}</p>
           </div>
+        </div>
+        {/* 写真はここに置く。ヒーローに戻すと「玩具を売る個人商店」に見えて
+            法人向けという主旨が崩れるが、理念を語るこの位置なら効く。 */}
+        <div className="mt-12 overflow-hidden border border-[#D6D6D6]">
+          <img
+            src={`${IMAGE_BASE}hero_family_toys_a7749c0e.jpg`}
+            alt=""
+            className="h-64 w-full object-cover md:h-96"
+            loading="lazy"
+          />
         </div>
       </section>
 
@@ -165,7 +181,6 @@ export default function Home() {
 
       <section className="container py-20 md:py-24">
         <div className="bg-[#0017C1] px-6 py-12 text-white md:px-12 md:py-14">
-          <p className="text-sm font-bold text-white/80">CONTACT</p>
           <div className="mt-4 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
             <div>
               <h2 className="text-3xl font-bold md:text-4xl">{isJa ? "法人のお取引・卸売のご相談" : "Wholesale and business inquiries"}</h2>

@@ -16,7 +16,6 @@ export default function Contact() {
       <div className="bg-white">
         <section className="border-b border-[#D6D6D6] bg-[#F2F2F2]">
           <div className="container py-16 md:py-20">
-            <p className="text-sm font-bold text-[#0017C1]">CONTACT</p>
             <h1 className="mt-4 text-4xl font-bold md:text-5xl">{t("contact.title")}</h1>
           </div>
         </section>
@@ -42,7 +41,6 @@ export default function Contact() {
     <div className="bg-white text-[#1A1A1A]">
       <section className="border-b border-[#D6D6D6] bg-[#F2F2F2]">
         <div className="container py-16 md:py-20">
-          <p className="text-sm font-bold text-[#0017C1]">CONTACT</p>
           <h1 className="mt-4 text-4xl font-bold tracking-[-0.02em] md:text-5xl">{t("contact.title")}</h1>
           <p className="mt-5 max-w-2xl text-base leading-8 text-[#4B4B4B]">
             {isJa
