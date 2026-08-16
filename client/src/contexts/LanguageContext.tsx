@@ -163,7 +163,6 @@ const translations = {
     'services.buying.mail_in.title': 'Mail-In',
     'services.buying.mail_in.desc': 'Send your items from anywhere in Japan. Easy and convenient.',
     'services.buying.commitment': 'Operating as "Niko Niko Kaitori", primarily on X (Twitter). We aim to offer the highest purchase prices in the industry.',
-    'feature.title': 'Connecting Japan\'s Quality to the World',
     'store.badge': 'In planning',
     'store.title': 'We are planning a toy store in Nagaoka',
     'store.lead': 'Nagaoka has few places where children can drop in and play. Summers are hot and winters are buried in snow. So we decided to build a place you can visit whatever the weather.',
