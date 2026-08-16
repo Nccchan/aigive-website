@@ -167,6 +167,37 @@ export default function Home() {
       </section>
 
       {/* Feature Section */}
+      {/* 長岡の玩具店舗（計画中）。2026-08-16 なつき: 「遊ぶ場所が少ない長岡に、子どもたちが遊べる場所を。
+          夏は暑く冬は雪深い土地柄を活かして、地域貢献の場にしたい」。
+          ⚠️ まだ開設していないので、断定しない。「計画中」「準備を進めている」を必ず添える。 */}
+      <section className="py-20" style={{ background: "#F2F2F2" }}>
+        <div className="container">
+          <div className="mx-auto max-w-3xl">
+            <span
+              className="inline-block text-xs font-bold tracking-wider px-3 py-1 rounded-full"
+              style={{ background: "#0017C1", color: "#FFFFFF" }}
+            >
+              {t('store.badge')}
+            </span>
+            <h2
+              className="text-3xl md:text-4xl font-heading font-bold mt-4 leading-snug"
+              style={{ color: "#1A1A1A" }}
+            >
+              {t('store.title')}
+            </h2>
+            <p className="text-lg leading-relaxed mt-6" style={{ color: "#1A1A1A" }}>
+              {t('store.lead')}
+            </p>
+            <p className="text-lg leading-relaxed mt-4" style={{ color: "#1A1A1A" }}>
+              {t('store.body')}
+            </p>
+            <p className="text-sm mt-6" style={{ color: "#626262" }}>
+              {t('store.note')}
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-white py-20 relative overflow-hidden">
         {/* Background Blobs */}
         <div className="absolute top-0 left-0 w-64 h-64 bg-orange-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 -translate-x-1/2 -translate-y-1/2"></div>
