@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- /coming-soon は未公開ページなので載せない -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://aigive.jp/</loc><priority>1.0</priority></url>
+  <url><loc>https://aigive.jp/services</loc><priority>0.8</priority></url>
+  <url><loc>https://aigive.jp/company</loc><priority>0.8</priority></url>
+  <url><loc>https://aigive.jp/contact</loc><priority>0.6</priority></url>
+  <url><loc>https://aigive.jp/privacy</loc><priority>0.3</priority></url>
+</urlset>
