@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://aigive.jp/sitemap.xml
+Sitemap: https://www.aigive.jp/sitemap.xml
