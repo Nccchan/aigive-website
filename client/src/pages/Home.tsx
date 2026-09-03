@@ -2,7 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowRight, Building2, CheckCircle2, Globe2, PackageCheck, Store, Users } from "lucide-react";
 import { Link } from "wouter";
 
-const IMAGE_BASE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663290935878/SiCQxmjUjv3yzqnUjcLmHZ/";
+const IMAGE_BASE = "/images/";
 
 export default function Home() {
   const { language, t } = useLanguage();
@@ -14,19 +14,19 @@ export default function Home() {
   const supportingBusinesses = [
     {
       icon: Store,
-      image: `${IMAGE_BASE}service_b2c_toys_b4a1497b.jpg`,
+      image: `${IMAGE_BASE}service_b2c_toys.jpg`,
       title: t("services.b2c.title"),
       description: t("services.b2c.desc"),
     },
     {
       icon: PackageCheck,
-      image: `${IMAGE_BASE}service_buying_appraisal_b2388309.jpg`,
+      image: `${IMAGE_BASE}service_buying_appraisal.jpg`,
       title: t("services.buying.title"),
       description: t("services.buying.desc"),
     },
     {
       icon: Users,
-      image: `${IMAGE_BASE}service_sns_marketing_0357ec50.jpg`,
+      image: `${IMAGE_BASE}service_sns_marketing.jpg`,
       title: t("services.sns.title"),
       description: t("services.sns.desc"),
     },
@@ -132,7 +132,7 @@ export default function Home() {
             法人向けという主旨が崩れるが、理念を語るこの位置なら効く。 */}
         <div className="mt-12 overflow-hidden border border-[#D6D6D6]">
           <img
-            src={`${IMAGE_BASE}hero_family_toys_a7749c0e.jpg`}
+            src={`${IMAGE_BASE}hero_family_toys.jpg`}
             alt=""
             className="h-64 w-full object-cover md:h-96"
             loading="lazy"
