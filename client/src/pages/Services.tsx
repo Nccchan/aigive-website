@@ -64,14 +64,6 @@ export default function Services() {
               </div>
               <div>
                 <p className="max-w-3xl text-base leading-8 text-[#4B4B4B]">{t("services.b2c.desc")}</p>
-                <a
-                  href="https://www.amazon.co.jp/b?node=26286483051&ie=UTF8&marketplaceID=A1VC38T7YXB528&me=A20GZZNLS2BAB2"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#0017C1] underline-offset-4 hover:underline"
-                >
-                  Amazon <ArrowRight className="h-4 w-4" />
-                </a>
               </div>
             </article>
 
