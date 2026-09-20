@@ -59,6 +59,11 @@ export default function Company() {
               <p className="text-sm font-bold text-[#0017C1]">LOCATION</p>
               <h2 className="mt-4 text-2xl font-bold">{isJa ? "所在地" : "Location"}</h2>
               <p className="mt-4 text-sm leading-7 text-[#626262]">{t("company.address_value")}</p>
+              <p className="mt-3 text-xs leading-6 text-[#626262]">
+                {isJa
+                  ? "登記上の所在地（バーチャルオフィス）です。来店・持ち込みには対応しておりません。お問い合わせは公式LINEまたはメールにて。"
+                  : "This is our registered address (virtual office). We do not accept visitors or walk-ins. Please contact us via our official LINE account or email."}
+              </p>
             </div>
             <div className="h-[320px] overflow-hidden border border-[#D6D6D6] bg-white md:h-[380px]">
               <iframe
