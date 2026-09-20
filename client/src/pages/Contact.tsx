@@ -66,6 +66,11 @@ export default function Contact() {
             <div className="mt-8 border-t border-[#D6D6D6] pt-6 text-sm leading-7 text-[#626262]">
               <div className="font-bold text-[#1A1A1A]">株式会社AiGIVE</div>
               <div className="mt-2">〒940-0062<br />新潟県長岡市大手通2-2-6</div>
+              <p className="mt-3 text-xs leading-6 text-[#626262]">
+                {isJa
+                  ? "登記上の所在地（バーチャルオフィス）です。来店・持ち込みには対応しておりません。お問い合わせは公式LINEまたはメールにて。"
+                  : "This is our registered address (virtual office). We do not accept visitors or walk-ins. Please contact us via our official LINE account or email."}
+              </p>
             </div>
           </aside>
 
