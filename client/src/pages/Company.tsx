@@ -54,29 +54,15 @@ export default function Company() {
 
       <section className="border-y border-[#D6D6D6] bg-[#F2F2F2]">
         <div className="container py-16 md:py-20">
-          <div className="grid gap-8 md:grid-cols-[0.7fr_1.3fr] md:gap-12">
-            <div>
-              <p className="text-sm font-bold text-[#0017C1]">LOCATION</p>
-              <h2 className="mt-4 text-2xl font-bold">{isJa ? "所在地" : "Location"}</h2>
-              <p className="mt-4 text-sm leading-7 text-[#626262]">{t("company.address_value")}</p>
-              <p className="mt-3 text-xs leading-6 text-[#626262]">
-                {isJa
-                  ? "登記上の所在地（バーチャルオフィス）です。来店・持ち込みには対応しておりません。お問い合わせは公式LINEまたはメールにて。"
-                  : "This is our registered address (virtual office). We do not accept visitors or walk-ins. Please contact us via our official LINE account or email."}
-              </p>
-            </div>
-            <div className="h-[320px] overflow-hidden border border-[#D6D6D6] bg-white md:h-[380px]">
-              <iframe
-                title={isJa ? "株式会社AiGIVE 所在地" : "AiGIVE location"}
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3161.666874868684!2d138.8516!3d37.4456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff5a9b0a0a0a0a1%3A0x0!2z5paw5r2f55yM6ZW35bKh5biC5aSn5omL6YCa77yS5LiB55uu77yS4oiS77yW!5e0!3m2!1sja!2sjp!4v1620000000000!5m2!1sja!2sjp"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
+          <div className="max-w-2xl">
+            <p className="text-sm font-bold text-[#0017C1]">LOCATION</p>
+            <h2 className="mt-4 text-2xl font-bold">{isJa ? "所在地" : "Location"}</h2>
+            <p className="mt-4 text-sm leading-7 text-[#626262]">{t("company.address_value")}</p>
+            <p className="mt-3 text-xs leading-6 text-[#626262]">
+              {isJa
+                ? "登記上の所在地（バーチャルオフィス）です。来店・持ち込みには対応しておりません。お問い合わせは公式LINEまたはメールにて。"
+                : "This is our registered address (virtual office). We do not accept visitors or walk-ins. Please contact us via our official LINE account or email."}
+            </p>
           </div>
         </div>
       </section>
