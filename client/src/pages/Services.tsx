@@ -77,15 +77,6 @@ export default function Services() {
               </div>
               <div>
                 <p className="max-w-3xl text-base leading-8 text-[#4B4B4B]">{t("services.buying.desc")}</p>
-                <p className="mt-4 text-sm leading-7 text-[#626262]">{t("services.buying.commitment")}</p>
-                <a
-                  href="https://x.com/niko_kaitori"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#0017C1] underline-offset-4 hover:underline"
-                >
-                  @niko_kaitori <ArrowRight className="h-4 w-4" />
-                </a>
               </div>
             </article>
 
