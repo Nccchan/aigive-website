@@ -138,7 +138,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
           <div className="mt-10 border-t border-[#D6D6D6] pt-6 text-xs leading-6 text-[#626262] md:flex md:items-center md:justify-between">
-            <div>{isJa ? "新潟県公安委員会 古物商許可 第461350000709号" : "Secondhand Dealer License No. 461350000709 / Niigata Prefectural Public Safety Commission"}</div>
+            <div>{isJa ? "新潟県公安委員会 古物商許可 第461190002721号" : "Secondhand Dealer License No. 461190002721 / Niigata Prefectural Public Safety Commission"}</div>
             <div className="mt-2 md:mt-0">{t("footer.copyright")}</div>
           </div>
         </div>
