@@ -60,8 +60,8 @@ export default function Company() {
             <p className="mt-4 text-sm leading-7 text-[#626262]">{t("company.address_value")}</p>
             <p className="mt-3 text-xs leading-6 text-[#626262]">
               {isJa
-                ? "登記上の所在地（バーチャルオフィス）です。来店・持ち込みには対応しておりません。お問い合わせは公式LINEまたはメールにて。"
-                : "This is our registered address (virtual office). We do not accept visitors or walk-ins. Please contact us via our official LINE account or email."}
+                ? "店頭での販売・買取、ご来店での対応は行っておりません。お問い合わせは、フォーム、公式LINE、またはメールでお願いいたします。"
+                : "We do not offer over-the-counter sales or purchases, and we do not accept visitors or walk-ins. Please contact us via the form, our official LINE account, or email."}
             </p>
           </div>
         </div>
