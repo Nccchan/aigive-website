@@ -4,6 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle2, Mail, Send } from "lucide-react";
+import SalesBuybackGuide from "@/components/SalesBuybackGuide";
 import { useForm, ValidationError } from "@formspree/react";
 
 export default function Contact() {
@@ -53,6 +54,8 @@ export default function Contact() {
           </a>
         </div>
       </section>
+
+      <SalesBuybackGuide />
 
       <section className="container py-16 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">

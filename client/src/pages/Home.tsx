@@ -1,6 +1,7 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowRight, Building2, CheckCircle2, Globe2, PackageCheck, Store, Users } from "lucide-react";
 import { Link } from "wouter";
+import SalesBuybackGuide from "@/components/SalesBuybackGuide";
 
 const IMAGE_BASE = "/images/";
 
@@ -113,6 +114,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <SalesBuybackGuide />
 
       <section className="container py-20 md:py-28">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
