@@ -114,6 +114,81 @@ function UrlLine({ url }: { url: string }) {
   return <p className="mt-2 select-all break-all text-xs leading-5 text-[#3A4272]">{url}</p>;
 }
 
+function Desk({ withCard }: { withCard: boolean }) {
+  return (
+    <svg viewBox="0 0 40 30" className="q-px block w-full" role="img" aria-label={withCard ? "Drawing: a plain card box and a Quest Card together on a desk" : "Drawing: a plain card box on a desk, no Quest Card"}>
+      <rect width="40" height="30" fill="#CFEAFF" />
+      <rect y="0" width="40" height="3" fill="#BCDFFB" />
+      <rect y="17" width="40" height="13" fill="#B98B5A" />
+      <rect y="17" width="40" height="1" fill="#8A6238" />
+      <rect y="24" width="40" height="1" fill="#A97B4B" />
+      {/* box: plain, no artwork */}
+      <rect x="5" y="7" width="19" height="16" fill="#1F2A6B" />
+      <rect x="6" y="8" width="17" height="14" fill="#3E7BD8" />
+      <rect x="6" y="8" width="17" height="4" fill="#6FA2F0" />
+      <rect x="6" y="12" width="17" height="1" fill="#1F2A6B" />
+      <rect x="9" y="15" width="11" height="4" fill="#FFFFFF" />
+      <rect x="10" y="16" width="9" height="1" fill="#C9D2F5" />
+      <rect x="10" y="18" width="6" height="1" fill="#C9D2F5" />
+      <rect x="5" y="23" width="19" height="1" fill="#7A5430" />
+      {withCard && (
+        <g>
+          <rect x="27" y="11" width="11" height="15" fill="#1F2A6B" />
+          <rect x="28" y="12" width="9" height="13" fill="#FFFDF0" />
+          <rect x="28" y="12" width="9" height="3" fill="#4B2FB8" />
+          <rect x="31" y="19" width="3" height="3" fill="#F6C23E" />
+          <rect x="32" y="18" width="1" height="1" fill="#F6C23E" />
+          <text x="32.5" y="14.4" textAnchor="middle" fontSize="1.9" fill="#FFFFFF" fontFamily="DotGothic16, monospace">QUEST</text>
+          <text x="32.5" y="17.7" textAnchor="middle" fontSize="1.9" fill="#1F2A6B" fontFamily="DotGothic16, monospace">CARD</text>
+        </g>
+      )}
+    </svg>
+  );
+}
+
+function Example() {
+  const comments = [
+    "My order arrived safely in 5 days. Everything was sealed and in perfect condition. Thank you!",
+    "Fast shipping to the US, great packing. Will order again!",
+  ];
+  return (
+    <article className="q-win mt-8">
+      <div className="q-dot px-4 py-2 text-[15px] text-white md:px-6" style={{ background: "#4B2FB8" }}>
+        <span className="text-base tracking-wider">EXAMPLE POST</span>
+      </div>
+      <div className="p-5 md:p-7">
+        <h2 className="q-dot text-xl font-bold">What a good post looks like</h2>
+        <div className="mt-4 grid max-w-[520px] grid-cols-2 gap-3 md:gap-5">
+          <figure>
+            <div style={{ border: "3px solid #2F8F3F" }}><Desk withCard /></div>
+            <figcaption className="mt-2 text-sm leading-6">
+              <span className="mr-1 inline-block px-2 font-bold text-white" style={{ background: "#2F8F3F" }}>✓ OK</span>
+              Item + Quest Card in the same photo
+            </figcaption>
+          </figure>
+          <figure>
+            <div style={{ border: "3px solid #B3261E" }}><Desk withCard={false} /></div>
+            <figcaption className="mt-2 text-sm leading-6">
+              <span className="mr-1 inline-block px-2 font-bold text-white" style={{ background: "#B3261E" }}>✗ NOT OK</span>
+              Quest Card is missing
+            </figcaption>
+          </figure>
+        </div>
+        <p className="mt-5 text-[15px] leading-7">A short, honest comment is perfect. One or two sentences is enough.</p>
+        <div className="mt-3 space-y-3">
+          {comments.map((c) => (
+            <div key={c} className="p-3 text-[15px] leading-7" style={{ background: "#EEF1FF", border: "3px solid #1F2A6B", borderRadius: 4 }}>
+              <p className="q-dot text-xs tracking-wider text-[#4B2FB8]">EXAMPLE COMMENT</p>
+              <p className="mt-1">“{c}”</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-4 text-sm leading-6">On Instagram and Facebook, don't forget to mention us (see each quest below).</p>
+      </div>
+    </article>
+  );
+}
+
 function Quest({ label, reward, title, children }: { label: string; reward: string; title: string; children: React.ReactNode }) {
   return (
     <article className="q-win">
@@ -209,6 +284,8 @@ export default function Thanks() {
             </ul>
           </div>
         </section>
+
+        <Example />
 
         <div className="mt-8 space-y-7">
           <Quest label="QUEST 1" reward="¥3,000 OFF" title="Arrival report on Discord">
