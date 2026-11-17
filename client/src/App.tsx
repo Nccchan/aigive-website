@@ -9,10 +9,20 @@ import Company from "@/pages/Company";
 import Contact from "@/pages/Contact";
 import Privacy from "@/pages/Privacy";
 import ComingSoon from "@/pages/ComingSoon";
+import Thanks from "@/pages/Thanks";
 import NotFound from "@/pages/NotFound";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 function Router() {
+  return (
+    <Switch>
+      <Route path="/thanks" component={Thanks} />
+      <Route component={SiteRoutes} />
+    </Switch>
+  );
+}
+
+function SiteRoutes() {
   return (
     <Layout>
       <Switch>
