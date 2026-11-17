@@ -14,6 +14,11 @@ const FACEBOOK_GROUP_URL = "https://www.facebook.com/groups/295270259354777";
 const FB_MENTIONS = ["@jotaro kawase", "@US Pokémon Card Collectors' Marketplace- Buy & Sell Direct from Japan"];
 const TBC = "【要確認】";
 
+// 最初の画面の切り替え: "card" = 代表の元のカードの絵（そのまま）／ "pixel" = 自作のドット絵
+const HERO: "card" | "pixel" = "card";
+const CARD_IMG = "/images/thanks-quest-card.jpg";
+const CARD_ALT = "NEW LOOT ACQUIRED!! Real cards from Japan, now in your hands. ありがとう！ Thank you for collecting with us.";
+
 const FONT_HREF =
   "https://fonts.googleapis.com/css2?family=Yuji+Boku&text=%E3%81%82%E3%82%8A%E3%81%8C%E3%81%A8%E3%81%86%EF%BC%81&display=swap";
 const FONT_DOT_HREF = "https://fonts.googleapis.com/css2?family=DotGothic16&display=swap";
@@ -166,6 +171,13 @@ export default function Thanks() {
     <div className="min-h-screen font-sans" style={{ background: "#BFE6FF", color: "#1F2340" }}>
       <style>{css}</style>
 
+      {HERO === "card" ? (
+        <header style={{ background: "linear-gradient(180deg,#52BEFA 0%,#7FD3FF 55%,#5DBB4A 100%)" }}>
+          <h1 className="sr-only">Thank you for your order</h1>
+          <img src={CARD_IMG} alt={CARD_ALT} width={1051} height={1051} className="mx-auto block aspect-square w-full max-w-[560px]" />
+          <div style={{ height: 14, background: "#4FBF4A", borderBottom: "6px solid #2F9A3A" }} aria-hidden="true" />
+        </header>
+      ) : (
       <header className="relative overflow-hidden text-center" style={{ background: "linear-gradient(180deg,#3FA9F5 0%,#8FD3FF 55%,#CDEEFF 100%)" }}>
         {confetti.map(([l, t, c], i) => (
           <span key={i} className="q-conf absolute block h-2 w-2" style={{ left: l, top: t, background: c, animationDelay: `${i * 0.27}s` }} aria-hidden="true" />
@@ -195,8 +207,9 @@ export default function Thanks() {
           </p>
         </div>
       </header>
+      )}
 
-      <main className="mx-auto -mt-10 max-w-3xl px-4 pb-14 md:-mt-14">
+      <main className={`mx-auto max-w-3xl px-4 pb-14 ${HERO === "card" ? "mt-6" : "-mt-10 md:-mt-14"}`}>
         <section className="q-win relative z-10 p-5 md:p-7">
           <p className="q-dot text-sm tracking-wider text-[#4B2FB8]">QUEST CARD</p>
           <p className="mt-2 text-base leading-8">
