@@ -4,7 +4,7 @@ import { ExternalLink } from "lucide-react";
 /*
  * /thanks — 荷物に同梱する「クエストカード」の QR の行き先（英語・1ページ）。
  * このページだけ、ドット絵のレトロゲーム風。絵はすべて自作（SVG の四角の並び）。外部の画像・他社のキャラクター・ロゴは使わない。
- * 検索に出さない（noindex）。サイトのメニューには載せない。【要確認】の印は、代表の確認が済むまで残す。
+ * 検索に出さない（noindex）。サイトのメニューには載せない。
  */
 const DISCORD_URL = "https://discord.gg/dKGgz2Ba9e"; // 出典: org knowledge/references/company-basics.md
 const WHATSAPP_URL = "https://wa.me/817091267304"; // 出典: org 過去のチケット返信。載せるかは代表に確認中
@@ -12,23 +12,19 @@ const INSTAGRAM_HANDLE = "@pokemon_mart_jpn"; // 出典: org knowledge/reference
 const INSTAGRAM_URL = "https://www.instagram.com/pokemon_mart_jpn";
 const FACEBOOK_GROUP_URL = "https://www.facebook.com/groups/295270259354777";
 const FB_MENTIONS = ["@jotaro kawase", "@US Pokémon Card Collectors' Marketplace- Buy & Sell Direct from Japan"];
-const TBC = "【要確認】";
 
-// 最初の画面の切り替え: "card" = 代表の元のカードの絵（そのまま）／ "pixel" = 自作のドット絵
-const HERO: "card" | "pixel" = "card";
-const CARD_IMG = "/images/thanks-quest-card.jpg";
-const CARD_ALT = "NEW LOOT ACQUIRED!! Real cards from Japan, now in your hands. ありがとう！ Thank you for collecting with us.";
-
+// 見出し用のドット書体と筆文字は、使う文字だけの小さな版を読み込む（表示は swap。読めない時は下の代わりの書体）
 const FONT_HREF =
-  "https://fonts.googleapis.com/css2?family=Yuji+Boku&text=%E3%81%82%E3%82%8A%E3%81%8C%E3%81%A8%E3%81%86%EF%BC%81&display=swap";
-const FONT_DOT_HREF = "https://fonts.googleapis.com/css2?family=DotGothic16&display=swap";
+  "https://fonts.googleapis.com/css2?family=DotGothic16&family=Yuji+Boku&text=%20%21%22%23%24%25%26%27%28%29%2A%2B%2C-./0123456789%3A%3B%3C%3D%3E%3F%40ABCDEFGHIJKLMNOPQRSTUVWXYZ%5B%5C%5D%5E_%60abcdefghijklmnopqrstuvwxyz%7B%7C%7D~%C2%A5%E2%80%94%E2%80%99%E3%81%82%E3%82%8A%E3%81%8C%E3%81%A8%E3%81%86%EF%BC%81&display=swap";
+const DISCORD_CHANNEL_URL = "https://discord.com/channels/1409413330681987193/1454524156761604167"; // サーバーID: org output/reports/ticket-reply-2026-09-12-0900.md（顧客サーバー）。チャンネルID: 同 ticket-0541
+const PRICE_LIST_URL = "https://www.niko-kaitori.jp/public/sales";
 
 const css = `
 .q-dot{font-family:'DotGothic16','Hiragino Kaku Gothic ProN','Noto Sans JP',monospace}
 .q-brush{font-family:'Yuji Boku','Hiragino Mincho ProN',serif}
 .q-px{image-rendering:pixelated;shape-rendering:crispEdges}
 .q-title{position:relative;display:inline-block;font-weight:900;font-style:italic;letter-spacing:.02em;line-height:1.02;transform:skewX(-6deg)}
-.q-title::before{content:attr(data-text);position:absolute;inset:0;-webkit-text-stroke:.28em #3B1B8F;z-index:0;text-shadow:0 .08em 0 #3B1B8F}
+.q-title::before{content:attr(data-text);position:absolute;inset:0;-webkit-text-stroke:.22em #3B1B8F;z-index:0;text-shadow:0 .08em 0 #3B1B8F}
 .q-title>span{position:relative;z-index:1;background:linear-gradient(180deg,#E9FBFF 0%,#7FDFFF 35%,#8FA8FF 65%,#B07BFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .q-win{background:#FFFDF0;color:#1F2340;border:4px solid #1F2A6B;box-shadow:0 6px 0 #1F2A6B;clip-path:polygon(0 8px,8px 8px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 8px) calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 8px),0 calc(100% - 8px))}
 .q-btn{display:inline-flex;min-height:48px;width:100%;align-items:center;justify-content:center;gap:8px;padding:12px 20px;font-weight:700;font-size:15px;border:3px solid #1F2A6B;box-shadow:0 4px 0 #1F2A6B;text-decoration:none;transition:transform .08s}
@@ -114,18 +110,14 @@ const confetti = [
   ["48%", "12%", "#FF5E8A"], ["5%", "74%", "#7FDFFF"], ["95%", "80%", "#F6C23E"],
 ];
 
-function Tbc({ children }: { children: React.ReactNode }) {
-  return (
-    <span>
-      <mark className="px-1 font-bold text-[#1A1A1A]" style={{ background: "#FFE45C", outline: "2px solid #1F2A6B" }}>{TBC}</mark> {children}
-    </span>
-  );
+function UrlLine({ url }: { url: string }) {
+  return <p className="mt-2 select-all break-all text-xs leading-5 text-[#3A4272]">{url}</p>;
 }
 
 function Quest({ label, reward, title, children }: { label: string; reward: string; title: string; children: React.ReactNode }) {
   return (
     <article className="q-win">
-      <div className="q-dot flex items-center justify-between gap-2 px-4 py-2 text-sm text-white md:px-6" style={{ background: "#4B2FB8" }}>
+      <div className="q-dot flex items-center justify-between gap-2 px-4 py-2 text-[15px] text-white md:px-6" style={{ background: "#4B2FB8" }}>
         <span className="text-base tracking-wider">{label}</span>
         <span className="px-2 py-1 text-[#1F2340]" style={{ background: "#F6C23E", border: "2px solid #1F2A6B" }}>REWARD: {reward}</span>
       </div>
@@ -140,7 +132,7 @@ function Quest({ label, reward, title, children }: { label: string; reward: stri
 export default function Thanks() {
   useEffect(() => {
     document.title = "Thank you for your order | AiGIVE";
-    const links = [FONT_HREF, FONT_DOT_HREF].map((href) => {
+    const links = [FONT_HREF].map((href) => {
       const l = document.createElement("link");
       l.rel = "stylesheet";
       l.href = href;
@@ -162,22 +154,16 @@ export default function Thanks() {
   }, []);
 
   const faq = [
-    { q: "When can I use my coupon?", a: <>On your next order, after we send it to you. <Tbc>Expiry date is not decided.</Tbc></> },
-    { q: "Which orders does it work for?", a: <><Tbc>Which stores (our online store, or wholesale quotes) accept it is not decided. Minimum purchase amount is not decided.</Tbc></> },
-    { q: "Can I use it with other discounts?", a: <><Tbc>Provisional: the coupon is for you only and cannot be combined with other discounts.</Tbc></> },
+    { q: "How long is the coupon valid?", a: <>3 months from the day we send it.</> },
+    { q: "Where can I use it?", a: <>On wholesale orders placed with us directly (by quote on WhatsApp or a Discord ticket). We take it off your quote total. It cannot be used at our online store checkout.</> },
+    { q: "Is there a minimum purchase?", a: <>No.</> },
+    { q: "Can I combine it with other discounts?", a: <>No. One coupon per order, for you only.</> },
   ];
 
   return (
     <div className="min-h-screen font-sans" style={{ background: "#BFE6FF", color: "#1F2340" }}>
       <style>{css}</style>
 
-      {HERO === "card" ? (
-        <header style={{ background: "linear-gradient(180deg,#52BEFA 0%,#7FD3FF 55%,#5DBB4A 100%)" }}>
-          <h1 className="sr-only">Thank you for your order</h1>
-          <img src={CARD_IMG} alt={CARD_ALT} width={1051} height={1051} className="mx-auto block aspect-square w-full max-w-[560px]" />
-          <div style={{ height: 14, background: "#4FBF4A", borderBottom: "6px solid #2F9A3A" }} aria-hidden="true" />
-        </header>
-      ) : (
       <header className="relative overflow-hidden text-center" style={{ background: "linear-gradient(180deg,#3FA9F5 0%,#8FD3FF 55%,#CDEEFF 100%)" }}>
         {confetti.map(([l, t, c], i) => (
           <span key={i} className="q-conf absolute block h-2 w-2" style={{ left: l, top: t, background: c, animationDelay: `${i * 0.27}s` }} aria-hidden="true" />
@@ -207,9 +193,8 @@ export default function Thanks() {
           </p>
         </div>
       </header>
-      )}
 
-      <main className={`mx-auto max-w-3xl px-4 pb-14 ${HERO === "card" ? "mt-6" : "-mt-10 md:-mt-14"}`}>
+      <main className="mx-auto -mt-10 max-w-3xl px-4 pb-14 md:-mt-14">
         <section className="q-win relative z-10 p-5 md:p-7">
           <p className="q-dot text-sm tracking-wider text-[#4B2FB8]">QUEST CARD</p>
           <p className="mt-2 text-base leading-8">
@@ -229,13 +214,18 @@ export default function Thanks() {
           <Quest label="QUEST 1" reward="¥3,000 OFF" title="Arrival report on Discord">
             <p>Post a photo and a comment in the <strong>#arrival-report</strong> channel on our Discord.</p>
             <div className="mt-4"><a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" className="q-btn q-btn-main">Join our Discord <ExternalLink className="h-4 w-4" /></a></div>
+            <UrlLine url={DISCORD_URL} />
+            <p className="mt-4 font-bold">Already a member?</p>
+            <div className="mt-2"><a href={DISCORD_CHANNEL_URL} target="_blank" rel="noopener noreferrer" className="q-btn q-btn-sub">Go to #arrival-report <ExternalLink className="h-4 w-4" /></a></div>
+            <UrlLine url={DISCORD_CHANNEL_URL} />
           </Quest>
           <Quest label="QUEST 2" reward="+¥3,000 OFF" title="Instagram post or Stories">
             <p>Post a photo on Instagram, as a post or in Stories, and mention <strong>{INSTAGRAM_HANDLE}</strong>.</p>
             <p className="mt-3 p-3 font-bold" style={{ background: "#FFE9E9", border: "2px solid #B3261E" }}>
               Stories disappear after 24 hours, so please be sure to mention us. If we cannot find it, we may ask you to post again.
             </p>
-            <div className="mt-4"><a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="q-btn q-btn-sub">Open our Instagram <ExternalLink className="h-4 w-4" /></a></div>
+            <div className="mt-4"><a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="q-btn q-btn-main">Open our Instagram <ExternalLink className="h-4 w-4" /></a></div>
+            <UrlLine url={INSTAGRAM_URL} />
           </Quest>
           <Quest label="QUEST 3" reward="+¥3,000 OFF" title="Post in our Facebook group">
             <p>Post a photo and a comment in our Facebook group, and mention both names below. Facebook matters to us too.</p>
@@ -245,6 +235,7 @@ export default function Thanks() {
               ))}
             </ul>
             <div className="mt-4"><a href={FACEBOOK_GROUP_URL} target="_blank" rel="noopener noreferrer" className="q-btn q-btn-main">Open the Facebook group <ExternalLink className="h-4 w-4" /></a></div>
+            <UrlLine url={FACEBOOK_GROUP_URL} />
           </Quest>
 
           <article className="q-win">
@@ -253,20 +244,33 @@ export default function Thanks() {
               <span className="tracking-wider">CLEAR! YOUR COUPON</span>
             </div>
             <div className="p-5 text-[15px] leading-7 md:p-7">
-              <p>Once we have checked your posts, we will give you a coupon you can use on your next order.</p>
-              <p className="mt-3">One coupon per customer every <strong>3 months</strong>. After 3 months, you can do the quests again.</p>
-              <p className="mt-3">
-                We cannot receive direct messages on Discord. <strong>Please open a ticket</strong> on our Discord and we will send your
-                coupon there. It can take a few days.
-              </p>
-              <p className="mt-3"><Tbc>How to receive the coupon if you only did the Instagram or Facebook quest is not decided.</Tbc></p>
+              <p>Once we have checked your posts, we will give you a coupon for your next order.</p>
+              <ul className="mt-3 list-disc space-y-1 pl-5">
+                <li>One coupon per customer every <strong>3 months</strong>. After 3 months, you can do the quests again.</li>
+                <li>Your coupon is valid for 3 months from the day we send it.</li>
+                <li>The coupon applies to wholesale orders placed with us directly (by quote on WhatsApp or a Discord ticket). It cannot be used in our online store checkout.</li>
+                <li>No minimum purchase. Cannot be combined with other discounts. One coupon per order.</li>
+              </ul>
+              <p className="mt-4 font-bold">How you get it</p>
+              <ul className="mt-1 list-disc space-y-1 pl-5">
+                <li>Discord: please <strong>open a ticket</strong> on our Discord (we cannot receive direct messages there). It can take a few days.</li>
+                <li>If you only did the Instagram or Facebook quest, we will send your coupon by DM on that platform.</li>
+              </ul>
             </div>
           </article>
 
-          <article className="q-win p-5 md:p-7">
-            <h2 className="q-dot text-xl font-bold">Not on Discord?</h2>
-            <p className="mt-2 text-[15px] leading-7">Do the Instagram or Facebook quest, or message us on WhatsApp.</p>
-            <div className="mt-4"><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="q-btn q-btn-sub">Message us on WhatsApp <ExternalLink className="h-4 w-4" /></a></div>
+          <article className="q-win">
+            <div className="q-dot px-4 py-2 text-base text-white md:px-6" style={{ background: "#1F6FB5" }}>
+              <span className="tracking-wider">STAY IN TOUCH</span>
+            </div>
+            <div className="p-5 text-[15px] leading-7 md:p-7">
+              <p>Daily picks and restock news are shared on WhatsApp. Message us there to get started.</p>
+              <div className="flex flex-col gap-3 sm:flex-row sm:gap-3">
+                <div className="sm:flex-1"><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="q-btn q-btn-main mt-4">Message us on WhatsApp <ExternalLink className="h-4 w-4" /></a></div>
+                <div className="sm:flex-1"><a href={PRICE_LIST_URL} target="_blank" rel="noopener noreferrer" className="q-btn q-btn-sub mt-4">See today's price list <ExternalLink className="h-4 w-4" /></a></div>
+              </div>
+              <UrlLine url={PRICE_LIST_URL} />
+            </div>
           </article>
 
           <article className="q-win p-5 md:p-7">
