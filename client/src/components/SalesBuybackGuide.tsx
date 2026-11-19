@@ -11,10 +11,10 @@ export default function SalesBuybackGuide() {
   const items = [
     {
       icon: Store,
-      title: isJa ? "中古品の販売" : "Pre-owned items for sale",
+      title: isJa ? "トレーディングカードの販売" : "Trading cards for sale",
       description: isJa
-        ? "トレーディングカードなどの中古品を、Amazon のストアで販売しています。"
-        : "We sell pre-owned trading cards and related items through our Amazon store (Japan).",
+        ? "未開封のBOXを中心に、トレーディングカード関連の商品を Amazon のストアで販売しています。"
+        : "We sell trading card products, mainly sealed boxes, through our Amazon store (Japan).",
       label: isJa ? "Amazon ストアを見る" : "Visit our Amazon store",
       href: AMAZON_STORE_URL,
     },
