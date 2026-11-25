@@ -15,19 +15,23 @@ const FB_MENTIONS = ["@jotaro kawase", "@US Pokémon Card Collectors' Marketplac
 
 // 見出し用のドット書体と筆文字は、使う文字だけの小さな版を読み込む（表示は swap。読めない時は下の代わりの書体）
 const FONT_HREF =
-  "https://fonts.googleapis.com/css2?family=DotGothic16&family=Yuji+Boku&text=%20%21%22%23%24%25%26%27%28%29%2A%2B%2C-./0123456789%3A%3B%3C%3D%3E%3F%40ABCDEFGHIJKLMNOPQRSTUVWXYZ%5B%5C%5D%5E_%60abcdefghijklmnopqrstuvwxyz%7B%7C%7D~%C2%A5%E2%80%94%E2%80%99%E3%81%82%E3%82%8A%E3%81%8C%E3%81%A8%E3%81%86%EF%BC%81&display=swap";
+  "https://fonts.googleapis.com/css2?family=DotGothic16&text=%20%21%22%23%24%25%26%27%28%29%2A%2B%2C-./0123456789%3A%3B%3C%3D%3E%3F%40ABCDEFGHIJKLMNOPQRSTUVWXYZ%5B%5C%5D%5E_%60abcdefghijklmnopqrstuvwxyz%7B%7C%7D~%C2%A5%E2%80%94%E2%80%99%E3%81%82%E3%82%8A%E3%81%8C%E3%81%A8%E3%81%86%EF%BC%81&display=swap";
+const FONT_HREF2 = "https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap";
 const DISCORD_CHANNEL_URL = "https://discord.com/channels/1409413330681987193/1454524156761604167"; // サーバーID: org output/reports/ticket-reply-2026-09-12-0900.md（顧客サーバー）。チャンネルID: 同 ticket-0541
-const PRICE_LIST_URL = "https://www.niko-kaitori.jp/public/sales";
+const PRICE_LIST_URL = "https://app.aigive.jp/public/sales";
 
 const css = `
-.q-dot{font-family:'DotGothic16','Hiragino Kaku Gothic ProN','Noto Sans JP',monospace}
+.q-dot{font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;font-weight:700}
+.q-head{font-family:'Inter','Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;font-weight:900}
+.q-body{font-size:18px;line-height:1.7}
+.q-fuda{background:#fff;border:5px solid #1F2A6B;box-shadow:0 6px 0 #1F2A6B;padding:10px;border-radius:14px}
 .q-brush{font-family:'Yuji Boku','Hiragino Mincho ProN',serif}
 .q-px{image-rendering:pixelated;shape-rendering:crispEdges}
 .q-title{position:relative;display:inline-block;font-weight:900;font-style:italic;letter-spacing:.02em;line-height:1.02;transform:skewX(-6deg)}
 .q-title::before{content:attr(data-text);position:absolute;inset:0;-webkit-text-stroke:.22em #3B1B8F;z-index:0;text-shadow:0 .08em 0 #3B1B8F}
 .q-title>span{position:relative;z-index:1;background:linear-gradient(180deg,#E9FBFF 0%,#7FDFFF 35%,#8FA8FF 65%,#B07BFF 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .q-win{background:#FFFDF0;color:#1F2340;border:4px solid #1F2A6B;box-shadow:0 6px 0 #1F2A6B;clip-path:polygon(0 8px,8px 8px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 8px) calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 8px),0 calc(100% - 8px))}
-.q-btn{display:inline-flex;min-height:48px;width:100%;align-items:center;justify-content:center;gap:8px;padding:12px 20px;font-weight:700;font-size:15px;border:3px solid #1F2A6B;box-shadow:0 4px 0 #1F2A6B;text-decoration:none;transition:transform .08s}
+.q-btn{display:inline-flex;min-height:56px;width:100%;align-items:center;justify-content:center;gap:8px;padding:12px 20px;font-weight:700;font-size:18px;border:3px solid #1F2A6B;box-shadow:0 4px 0 #1F2A6B;text-decoration:none;transition:transform .08s}
 .q-btn:active{transform:translateY(3px);box-shadow:0 1px 0 #1F2A6B}
 .q-btn:focus-visible{outline:3px solid #7A3FE0;outline-offset:3px}
 @media(min-width:640px){.q-btn{width:auto}}
@@ -110,10 +114,6 @@ const confetti = [
   ["48%", "12%", "#FF5E8A"], ["5%", "74%", "#7FDFFF"], ["95%", "80%", "#F6C23E"],
 ];
 
-function UrlLine({ url }: { url: string }) {
-  return <p className="mt-2 select-all break-all text-xs leading-5 text-[#3A4272]">{url}</p>;
-}
-
 function Desk({ withCard }: { withCard: boolean }) {
   return (
     <svg viewBox="0 0 40 30" className="q-px block w-full" role="img" aria-label={withCard ? "Drawing: a plain card box and a Quest Card together on a desk" : "Drawing: a plain card box on a desk, no Quest Card"}>
@@ -153,52 +153,68 @@ function Example() {
   ];
   return (
     <article className="q-win mt-8">
-      <div className="q-dot px-4 py-2 text-[15px] text-white md:px-6" style={{ background: "#4B2FB8" }}>
-        <span className="text-base tracking-wider">EXAMPLE POST</span>
+      <div className="q-dot px-4 py-2 text-[18px] text-white md:px-6" style={{ background: "#4B2FB8" }}>
+        <span className="text-lg tracking-wider">EXAMPLE POST</span>
       </div>
       <div className="p-5 md:p-7">
-        <h2 className="q-dot text-xl font-bold">What a good post looks like</h2>
+        <h2 className="q-dot text-2xl font-bold">What a good post looks like</h2>
         <div className="mt-4 grid max-w-[520px] grid-cols-2 gap-3 md:gap-5">
           <figure>
             <div style={{ border: "3px solid #2F8F3F" }}><Desk withCard /></div>
-            <figcaption className="mt-2 text-sm leading-6">
+            <figcaption className="mt-2 text-[17px] leading-[1.7]">
               <span className="mr-1 inline-block px-2 font-bold text-white" style={{ background: "#2F8F3F" }}>✓ OK</span>
               Item + Quest Card in the same photo
             </figcaption>
           </figure>
           <figure>
             <div style={{ border: "3px solid #B3261E" }}><Desk withCard={false} /></div>
-            <figcaption className="mt-2 text-sm leading-6">
+            <figcaption className="mt-2 text-[17px] leading-[1.7]">
               <span className="mr-1 inline-block px-2 font-bold text-white" style={{ background: "#B3261E" }}>✗ NOT OK</span>
               Quest Card is missing
             </figcaption>
           </figure>
         </div>
-        <p className="mt-5 text-[15px] leading-7">A short, honest comment is perfect. One or two sentences is enough.</p>
+        <p className="mt-5 text-[18px] leading-[1.7]">A short, honest comment is perfect. One or two sentences is enough.</p>
         <div className="mt-3 space-y-3">
           {comments.map((c) => (
-            <div key={c} className="p-3 text-[15px] leading-7" style={{ background: "#EEF1FF", border: "3px solid #1F2A6B", borderRadius: 4 }}>
-              <p className="q-dot text-xs tracking-wider text-[#4B2FB8]">EXAMPLE COMMENT</p>
+            <div key={c} className="p-3 text-[18px] leading-[1.7]" style={{ background: "#EEF1FF", border: "3px solid #1F2A6B", borderRadius: 4 }}>
+              <p className="q-dot text-sm tracking-wider text-[#4B2FB8]">EXAMPLE COMMENT</p>
               <p className="mt-1">“{c}”</p>
             </div>
           ))}
         </div>
-        <p className="mt-4 text-sm leading-6">On Instagram and Facebook, don't forget to mention us (see each quest below).</p>
+        <p className="mt-4 text-[17px] leading-[1.7]">On Instagram and Facebook, don't forget to mention us (see each quest below).</p>
       </div>
     </article>
   );
 }
 
-function Quest({ label, reward, title, children }: { label: string; reward: string; title: string; children: React.ReactNode }) {
+function Btn({ href, kind, children }: { href: string; kind: "main" | "sub"; children: React.ReactNode }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={`q-btn ${kind === "main" ? "q-btn-main" : "q-btn-sub"} mt-2`}>
+      {children} <ExternalLink className="h-5 w-5" />
+    </a>
+  );
+}
+
+function Quest({ label, reward, title, steps }: { label: string; reward: string; title: string; steps: React.ReactNode[] }) {
   return (
     <article className="q-win">
-      <div className="q-dot flex items-center justify-between gap-2 px-4 py-2 text-[15px] text-white md:px-6" style={{ background: "#4B2FB8" }}>
-        <span className="text-base tracking-wider">{label}</span>
-        <span className="px-2 py-1 text-[#1F2340]" style={{ background: "#F6C23E", border: "2px solid #1F2A6B" }}>REWARD: {reward}</span>
+      <div className="q-head px-4 py-4 text-center text-[32px] leading-tight md:px-6 md:text-5xl" style={{ background: "#F6C23E", color: "#1F2340", borderBottom: "4px solid #1F2A6B" }}>
+        GET {reward}
       </div>
+      <div className="q-dot px-4 py-2 text-lg tracking-wider text-white md:px-6" style={{ background: "#4B2FB8" }}>{label}</div>
       <div className="p-5 md:p-7">
-        <h2 className="q-dot text-xl font-bold md:text-2xl">{title}</h2>
-        <div className="mt-3 text-[15px] leading-7">{children}</div>
+        <h2 className="q-dot text-2xl font-bold md:text-3xl">{title}</h2>
+        <p className="q-head mt-4 text-lg tracking-wider text-[#4B2FB8]">WHAT TO DO</p>
+        <ol className="mt-2 space-y-4">
+          {steps.map((st, i) => (
+            <li key={i} className="flex gap-3 text-[18px] leading-[1.7]">
+              <span className="q-head flex h-9 w-9 flex-none items-center justify-center rounded-full text-lg text-white" style={{ background: "#1F2A6B" }}>{i + 1}</span>
+              <div className="min-w-0 flex-1 pt-0.5">{st}</div>
+            </li>
+          ))}
+        </ol>
       </div>
     </article>
   );
@@ -207,7 +223,7 @@ function Quest({ label, reward, title, children }: { label: string; reward: stri
 export default function Thanks() {
   useEffect(() => {
     document.title = "Thank you for your order | AiGIVE";
-    const links = [FONT_HREF].map((href) => {
+    const links = [FONT_HREF, FONT_HREF2].map((href) => {
       const l = document.createElement("link");
       l.rel = "stylesheet";
       l.href = href;
@@ -250,12 +266,12 @@ export default function Thanks() {
 
         <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-4 pb-32 pt-8 md:pt-12">
           <Pixels rows={STAR} pal={{ y: "#FFE45C" }} className="mb-1 h-5 w-5" />
-          <h1 className="q-dot q-title text-[38px] md:text-7xl" data-text="NEW LOOT ACQUIRED!!">
+          <h1 className="q-head q-title text-[40px] md:text-7xl" data-text="NEW LOOT ACQUIRED!!">
             <span>NEW LOOT ACQUIRED!!</span>
           </h1>
-          <p className="q-brush mt-4 text-5xl md:text-6xl" style={{ color: "#fff", textShadow: "3px 3px 0 #1F2A6B, -2px -2px 0 #1F2A6B, 2px -2px 0 #1F2A6B, -2px 2px 0 #1F2A6B" }}>
-            ありがとう！
-          </p>
+          <div className="q-fuda mt-5 w-[88%] max-w-[420px]">
+            <img src="/images/arigatou_shodo.jpg" alt="ありがとう" className="block h-auto w-full" style={{ borderRadius: 6 }} />
+          </div>
           <div className="relative mt-3">
             <div className="q-glow absolute left-1/2 top-[-18px] h-[150px] w-[210px] -translate-x-1/2 rounded-full" style={{ background: "radial-gradient(circle,#FFF6B8 0%,rgba(255,246,184,.55) 45%,rgba(255,246,184,0) 72%)" }} aria-hidden="true" />
             <Pixels rows={CHEST} pal={CHEST_PAL} className="relative w-[176px] md:w-[230px]" />
@@ -263,7 +279,7 @@ export default function Thanks() {
             <Pixels rows={COIN} pal={{ o: "#3B2412", y: "#FFE58A", k: "#E0A81C" }} className="q-conf absolute right-[-30px] top-[18px] w-[22px]" />
             <Pixels rows={STAR} pal={{ y: "#FFFFFF" }} className="q-conf absolute right-[-8px] top-[-22px] w-[18px]" />
           </div>
-          <p className="q-dot relative mt-4 px-3 py-1 text-[15px] md:text-lg" style={{ background: "rgba(31,42,107,.88)", color: "#fff" }}>
+          <p className="q-dot relative mt-4 px-3 py-1 text-[18px] md:text-xl" style={{ background: "rgba(31,42,107,.88)", color: "#fff" }}>
             Real cards from Japan, now in your hands.
           </p>
         </div>
@@ -271,12 +287,12 @@ export default function Thanks() {
 
       <main className="mx-auto -mt-10 max-w-3xl px-4 pb-14 md:-mt-14">
         <section className="q-win relative z-10 p-5 md:p-7">
-          <p className="q-dot text-sm tracking-wider text-[#4B2FB8]">QUEST CARD</p>
-          <p className="mt-2 text-base leading-8">
+          <p className="q-dot text-base tracking-wider text-[#4B2FB8]">QUEST CARD</p>
+          <p className="mt-2 text-[19px] leading-[1.7]">
             Complete our 3 quests, step by step, and get up to <strong>¥9,000 OFF</strong> your next order. Do one, two or all three:
             each quest earns its own discount.
           </p>
-          <div className="mt-4 p-4 text-[15px] leading-7" style={{ background: "#FFF0B8", border: "3px solid #1F2A6B" }}>
+          <div className="mt-4 p-4 text-[18px] leading-[1.7]" style={{ background: "#FFF0B8", border: "3px solid #1F2A6B" }}>
             <p className="q-dot font-bold">RULES — for every quest</p>
             <ul className="mt-1 list-disc space-y-1 pl-5">
               <li>Show <strong>both your item and the Quest Card</strong> in the photo.</li>
@@ -288,39 +304,37 @@ export default function Thanks() {
         <Example />
 
         <div className="mt-8 space-y-7">
-          <Quest label="QUEST 1" reward="¥3,000 OFF" title="Arrival report on Discord">
-            <p>Post a photo and a comment in the <strong>#arrival-report</strong> channel on our Discord.</p>
-            <div className="mt-4"><a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" className="q-btn q-btn-main">Join our Discord <ExternalLink className="h-4 w-4" /></a></div>
-            <UrlLine url={DISCORD_URL} />
-            <p className="mt-4 font-bold">Already a member?</p>
-            <div className="mt-2"><a href={DISCORD_CHANNEL_URL} target="_blank" rel="noopener noreferrer" className="q-btn q-btn-sub">Go to #arrival-report <ExternalLink className="h-4 w-4" /></a></div>
-            <UrlLine url={DISCORD_CHANNEL_URL} />
-          </Quest>
-          <Quest label="QUEST 2" reward="+¥3,000 OFF" title="Instagram post or Stories">
-            <p>Post a photo on Instagram, as a post or in Stories, and mention <strong>{INSTAGRAM_HANDLE}</strong>.</p>
-            <p className="mt-3 p-3 font-bold" style={{ background: "#FFE9E9", border: "2px solid #B3261E" }}>
-              Stories disappear after 24 hours, so please be sure to mention us. If we cannot find it, we may ask you to post again.
-            </p>
-            <div className="mt-4"><a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="q-btn q-btn-main">Open our Instagram <ExternalLink className="h-4 w-4" /></a></div>
-            <UrlLine url={INSTAGRAM_URL} />
-          </Quest>
-          <Quest label="QUEST 3" reward="+¥3,000 OFF" title="Post in our Facebook group">
-            <p>Post a photo and a comment in our Facebook group, and mention both names below. Facebook matters to us too.</p>
-            <ul className="mt-3 space-y-2">
-              {FB_MENTIONS.map((m) => (
-                <li key={m} className="select-all break-words px-3 py-2 font-bold" style={{ background: "#EEF1FF", border: "2px solid #1F2A6B" }}>{m}</li>
-              ))}
-            </ul>
-            <div className="mt-4"><a href={FACEBOOK_GROUP_URL} target="_blank" rel="noopener noreferrer" className="q-btn q-btn-main">Open the Facebook group <ExternalLink className="h-4 w-4" /></a></div>
-            <UrlLine url={FACEBOOK_GROUP_URL} />
-          </Quest>
+          <Quest label="QUEST 1" reward="¥3,000 OFF" title="Arrival report on Discord" steps={[
+            <><p className="font-bold">Join our Discord</p><Btn href={DISCORD_URL} kind="main">Join our Discord</Btn></>,
+            <><p className="font-bold">Open the #arrival-report channel</p><Btn href={DISCORD_CHANNEL_URL} kind="sub">Go to #arrival-report</Btn></>,
+            <p>Post a photo of your item + the Quest Card and a short comment.</p>,
+            <p>We'll send your <strong>¥3,000 coupon</strong> (see "How you get it" below).</p>,
+          ]} />
+          <Quest label="QUEST 2" reward="+¥3,000 OFF" title="Instagram post or Stories" steps={[
+            <><p className="font-bold">Open our Instagram</p><Btn href={INSTAGRAM_URL} kind="main">Open our Instagram</Btn></>,
+            <p>Post a photo of your item + the Quest Card, as a post or in Stories, with a short comment.</p>,
+            <><p>Mention <strong>{INSTAGRAM_HANDLE}</strong>.</p>
+              <p className="mt-2 p-3 font-bold" style={{ background: "#FFE9E9", border: "2px solid #B3261E" }}>Stories disappear after 24 hours, so please be sure to mention us. If we cannot find it, we may ask you to post again.</p></>,
+            <p>We'll send your <strong>¥3,000 coupon</strong> by DM.</p>,
+          ]} />
+          <Quest label="QUEST 3" reward="+¥3,000 OFF" title="Post in our Facebook group" steps={[
+            <><p className="font-bold">Open the Facebook group</p><Btn href={FACEBOOK_GROUP_URL} kind="main">Open the Facebook group</Btn></>,
+            <p>Post a photo of your item + the Quest Card and a short comment.</p>,
+            <><p>Mention both names below (tap to select, then copy).</p>
+              <ul className="mt-2 space-y-2">
+                {FB_MENTIONS.map((m) => (
+                  <li key={m} className="select-all break-words px-3 py-2 font-bold" style={{ background: "#EEF1FF", border: "2px solid #1F2A6B" }}>{m}</li>
+                ))}
+              </ul></>,
+            <p>We'll send your <strong>¥3,000 coupon</strong> by DM.</p>,
+          ]} />
 
           <article className="q-win">
-            <div className="q-dot flex items-center gap-2 px-4 py-2 text-base text-white md:px-6" style={{ background: "#2F8F3F" }}>
+            <div className="q-dot flex items-center gap-2 px-4 py-2 text-lg text-white md:px-6" style={{ background: "#2F8F3F" }}>
               <Pixels rows={STAR} pal={{ y: "#FFE45C" }} className="h-5 w-5" />
               <span className="tracking-wider">CLEAR! YOUR COUPON</span>
             </div>
-            <div className="p-5 text-[15px] leading-7 md:p-7">
+            <div className="p-5 text-[18px] leading-[1.7] md:p-7">
               <p>Once we have checked your posts, we will give you a coupon for your next order.</p>
               <ul className="mt-3 list-disc space-y-1 pl-5">
                 <li>One coupon per customer every <strong>3 months</strong>. After 3 months, you can do the quests again.</li>
@@ -337,36 +351,35 @@ export default function Thanks() {
           </article>
 
           <article className="q-win">
-            <div className="q-dot px-4 py-2 text-base text-white md:px-6" style={{ background: "#1F6FB5" }}>
-              <span className="tracking-wider">STAY IN TOUCH</span>
+            <div className="q-head px-4 py-4 text-center text-[26px] leading-tight text-white md:text-4xl" style={{ background: "#1F6FB5" }}>
+              Want to order more? Get today's prices
             </div>
-            <div className="p-5 text-[15px] leading-7 md:p-7">
-              <p>Daily picks and restock news are shared on WhatsApp. Message us there to get started.</p>
-              <div className="flex flex-col gap-3 sm:flex-row sm:gap-3">
-                <div className="sm:flex-1"><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="q-btn q-btn-main mt-4">Message us on WhatsApp <ExternalLink className="h-4 w-4" /></a></div>
-                <div className="sm:flex-1"><a href={PRICE_LIST_URL} target="_blank" rel="noopener noreferrer" className="q-btn q-btn-sub mt-4">See today's price list <ExternalLink className="h-4 w-4" /></a></div>
+            <div className="p-5 text-[18px] leading-[1.7] md:p-7">
+              <p>Wholesale &amp; bulk orders welcome — we reply the same day (Japan time).</p>
+              <div className="mt-3 flex flex-col gap-3 sm:flex-row">
+                <div className="sm:flex-1"><a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="q-btn mt-1" style={{ background: "#25D366", color: "#073B1A" }}>Chat with us on WhatsApp <ExternalLink className="h-5 w-5" /></a></div>
+                <div className="sm:flex-1"><a href={PRICE_LIST_URL} target="_blank" rel="noopener noreferrer" className="q-btn q-btn-sub mt-1">See today's price list <ExternalLink className="h-5 w-5" /></a></div>
               </div>
-              <UrlLine url={PRICE_LIST_URL} />
             </div>
           </article>
 
           <article className="q-win p-5 md:p-7">
-            <h2 className="q-dot text-xl font-bold">FAQ</h2>
+            <h2 className="q-dot text-2xl font-bold">FAQ</h2>
             <dl className="mt-3 divide-y-2 divide-[#C9D2F5]">
               {faq.map((f) => (
                 <div key={f.q} className="py-4">
-                  <dt className="font-bold">{f.q}</dt>
-                  <dd className="mt-1 text-[15px] leading-7">{f.a}</dd>
+                  <dt className="text-[19px] font-bold">{f.q}</dt>
+                  <dd className="mt-1 text-[18px] leading-[1.7]">{f.a}</dd>
                 </div>
               ))}
             </dl>
           </article>
         </div>
 
-        <p className="q-dot mt-10 text-center text-lg" style={{ color: "#1F2A6B" }}>Thank you for collecting with us.</p>
+        <p className="q-dot mt-10 text-center text-xl" style={{ color: "#1F2A6B" }}>Thank you for collecting with us.</p>
       </main>
 
-      <footer className="py-6 text-center text-xs" style={{ background: "#2F9A3A", color: "#fff", borderTop: "6px solid #4FBF4A" }}>
+      <footer className="py-6 text-center text-sm" style={{ background: "#2F9A3A", color: "#fff", borderTop: "6px solid #4FBF4A" }}>
         AiGIVE CO., LTD. / Nagaoka, Niigata, Japan
       </footer>
     </div>
